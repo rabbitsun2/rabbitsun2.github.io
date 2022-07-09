@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+	a{
+		color:#000000;
+		text-decoration:none;
+	}
+
+	a:link { 
+		color:#000000;
+		text-decoration: none;
+	}
+	a:visited { 
+		color:#000000; 
+		text-decoration: none;
+	}
+	a:hover { 
+		color:#000000; 
+		text-decoration: underline;
+	}
+
+	body{
+		margin:0px;
+		text-align:center;
+		font-family:'NanumGothic';
+		font-size:13px;
+	}
+
+	.cakeon_tbl{
+		width:100%;
+		margin:auto;
+		text-align: center;
+		border-collapse: collapse; border-spacing: 0;
+	}
+
+	.cakeon_header_font{
+		font-family:'NanumGothic';
+		font: size 15px;
+		font-weight: bold;
+		margin-right: 20px;
+	}
+
+	.cakeon_header_menu{
+		background-color: #FFF;
+		width: 800px;
+		height: 35px;
+		margin: auto;
+		padding-top: 15px;
+		border: 3px solid #e2e2e2;
+	}
+
+	.cakeon_home_tbl{
+		
+		width:60%;
+		margin:auto;
+		text-align: center;
+		border-collapse: collapse; border-spacing: 0;
+	}
+
+	.cakeon_introduce_tbl{
+		width:60%;
+		margin:auto;
+		text-align: center;
+		border-collapse: collapse; border-spacing: 0;
+	}
+	
+	.about_txt_detailView_font{
+		font-size:14px;
+		font-weight:bold;
+	}
+	.about_txt_title_font{
+		font-size:25px;
+		font-weight:bold;
+	}
+
+	.about_txt_font{
+		font-size:15px;		
+	}
+	
+	.about_list ul, .about_list ol {
+    	padding: 5px 0px 5px 5px;
+    	margin-bottom: 5px;
+    	font-size: 15px;
+		list-style: none;
+		margin: 0px;
+		padding: 0px;
+	}
+
+	.about_carrer_tbl{
+		width: 100%; 
+		border: 1px solid #666;
+		border-collapse: collapse; border-spacing: 0;
+	}
+	.about_carrer_tbl td{
+		border: 1px solid #666;
+	}
+
+	.about_award_tbl{
+		width: 100%; 
+		border: 1px solid #666;
+		border-collapse: collapse; border-spacing: 0;
+	}
+
+	.about_award_tbl td{
+		border: 1px solid #666;
+	}
+
+	.about_patents_tbl{
+		width: 100%; 
+		border: 1px solid #666;
+		border-collapse: collapse; border-spacing: 0;
+	}
+
+	.about_patents_tbl td{
+		border: 1px solid #666;
+	}
+
+	.cakeon_contact_tbl{
+		width:100%;
+		margin:auto;
+		text-align: center;
+		border-collapse: collapse; border-spacing: 0;
+	}
+
+	.contact_list ul, .contact_list ol {
+    	padding: 5px 0px 5px 5px;
+    	margin-bottom: 5px;
+    	font-size: 15px;
+		list-style: none;
+		margin: 0px;
+		padding: 0px;
+	}
+
+	.contact_about_tbl{
+		width: 100%; 
+		border: 1px solid #666;
+		border-collapse: collapse; border-spacing: 0;
+	}
+
+	.contact_about_tbl td{
+		border: 1px solid #666;
+	}

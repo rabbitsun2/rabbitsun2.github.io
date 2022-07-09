@@ -1,0 +1,41 @@
+/*
+	Subject: MySQL(MariaDB) Create User, Create Database, Grant Database, 
+		   Configuration Bind Address(server.cnf), Revoke DB, Drop User
+		   
+	Author: Doyun Jung
+	Created Date: 2022-04-16
+	Description:	
+	1. Ubuntu 20.04에서 태스트 확인함.
+	
+*/
+
+### 1. 외부 접속 허용
+
+# cd /
+# cd /etc/mysql/mariadb.conf.d/
+# vim 50-server.cnf
+
+(before)
+bind-address		= 127.0.0.1
+
+(after)
+bind-address 		= 0.0.0.0
+
+
+### 2. 외부 접속 계정 허용
+
+# mysql -u root -p
+# use mysql;
+# create user 'hr'@'%' identified by '123456';
+# flush privileges;
+# create database hr;
+# grant all privileges on hr.* to 'hr'@'%' identified by '123456';
+
+### 3. 데이터베이스 권한 제거, 데이터베이스 사용자 계정 제거
+
+# 사용자에게 데이터베이스 사용권한 제거 
+# REVOKE ALL ON DB명.테이블명 FROM '사용자ID'; 
+
+# 사용자 계정 삭제 
+# DROP USER '사용자ID'@'%'; 
+# DROP USER '사용자ID'@localhost;

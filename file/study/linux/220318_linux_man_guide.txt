@@ -1,0 +1,15 @@
+/* 
+	제목: Linux Man Guide(내장 Manual)
+	작성일자: 2022-03-18
+	파일명: 220318_linux_man_guide.txt
+	작성자: 정도윤
+	이메일: rabbit.white@daum.net
+*/
+
+= (사용방법)
+man man
+man cp
+man ls
+
+= (비고)
+* 인터넷 검색을 적극 활용할 것
