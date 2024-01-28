@@ -1,0 +1,88 @@
+/*
+	
+	Subject: Ubuntu 20.04 - Visual Studio Code, Gcc, MySQL Compile Guide
+	Create Date: 2022-04-22
+	Author: Doyun Jung(정도윤)
+	Description:
+
+*/
+
+# apt-get install libmysql++-dev
+# apt-get install mysql-client
+# sudo apt install libmariadb3 libmariadb-dev
+# apt-get install libmysqlclient-dev
+
+VSCode 터미널 창에서 해야할 작업
+
+* mysql.h 위치 찾는 명령어
+mysql_config --cflags 
+
+include  mysql.h 방법
+#include "/usr/include/mysql/mysql.h"     (위에서 찾은 위치경로를 입력합니다)
+
+컴파일 방법
+gcc -o sqlprogtam sqlprogram.c -lmysqlclient
+
+----------------------------------------------------------
+[Sample Source Code] - hello1.c
+----------------------------------------------------------
+
+#include <stdio.h>
+#include "/usr/include/mysql/mysql.h"
+
+int main(){
+	
+	long i;
+	const char* s;
+	
+	i = mysql_get_client_version();	
+	s = mysql_get_client_info();
+
+	printf("%ld\n", i);
+	printf("%s\n", s);
+
+	return 0;
+
+}
+
+gcc -o hello1 hello1.c -lmysqlclient
+
+----------------------------------------------------------
+[Sample Source Code] - hello2.c
+----------------------------------------------------------
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <mysql/mysql.h>
+
+int main(){
+	
+	MYSQL mysql;
+	
+	char* dbHost = "10.210.150.5";
+	char* dbUser = "hr";
+	char* dbPass = "123456";
+	int dbPort = 12100;
+	char* dbName = "hr";
+
+	printf("mysql client version: %s\n", mysql_get_client_info());
+	mysql_init(&mysql);
+
+	if(!mysql_real_connect(&mysql, dbHost, dbUser, dbPass, dbName, dbPort, NULL, 0)){
+	
+		printf("DBMS 접속 실패\n");
+
+	}else{
+		printf("DBMS 접속 성공\n");
+
+	}
+
+	printf("한글");
+	printf("mysql server version: %s\n", mysql_get_server_info(&mysql));
+
+	mysql_close(&mysql);
+
+	return 0;
+}
+
+gcc -o hello2 hello2.c -lmysqlclient

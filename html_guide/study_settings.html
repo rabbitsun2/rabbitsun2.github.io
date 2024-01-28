@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- 검색엔진 최적화(SEO) -->
+  <meta name="author" content="정도윤, Doyoon Jung">
+  <meta name="description"
+        content="정도윤 홈페이지입니다. This website is Doyoon Jung Homepage" />
+  <!-- OpenGraph 최적화 -->
+  <meta name="og:site_name" content="정도윤 Github Website" />
+  <meta name="og:title" content="Study/Settings ::: Doyoon Jung(정도윤)" />
+  <meta name="og:description"
+        content="정도윤 홈페이지입니다. This website is Doyoon Jung Homepage" />
+
+  <title>Study/Settings ::: Doyoon Jung(정도윤)</title>
+
+  <link href="../images/logo/logo.ico" rel="icon">
+  <link href="../library/ruang/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../library/ruang/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../library/ruang/css/ruang-admin.min.css" rel="stylesheet">
+  
+  <!-- Fonts -->
+  <link href="../dist/fonts/NanumGothic/fonts.css" rel="stylesheet">
+
+  <!-- Script -->
+  <script src="../js/home.js"></script>
+
+  <!-- Plug-ins -->
+  <script src="../library/ruang/vendor/jquery/jquery.min.js"></script>
+  <link rel="stylesheet" href="../library/bxslider-4-4.2.12/dist/jquery.bxslider.css">
+  <script src="../library/bxslider-4-4.2.12/dist/jquery.bxslider.min.js"></script>
+
+  <!-- Slider -->  
+  <script>
+    $(document).ready(function(){
+      $('.slider1').bxSlider();
+    });
+  </script>
+
+</head>
+
+<body id="page-top">
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.html">
+        <div class="sidebar-brand-icon">
+          <img src="../images/logo/logo.png">
+        </div>
+        <div class="sidebar-brand-text mx-3">정도윤</div>
+      </a>
+      <hr class="sidebar-divider my-0">
+      <li class="nav-item">
+        <a class="nav-link" href="../index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+        Menu
+      </div>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfile"
+          aria-expanded="true" aria-controls="collapseProfile">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Profile</span>
+        </a>
+        <div id="collapseProfile" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Profile</h6>
+            <a class="collapse-item" href="../profile/profile_korean.html">Profile(Korean)</a>
+            <a class="collapse-item" href="../profile/profile_english.html">Profile(English)</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
+          aria-expanded="true" aria-controls="collapseBootstrap">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Study</span>
+        </a>
+        <div id="collapseBootstrap" class="collapse show" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Study</h6>
+            <a class="collapse-item" href="study_avr.html">AVR</a>
+            <a class="collapse-item" href="study_linux.html">Linux</a>
+            <a class="collapse-item active" href="study_settings.html">Settings</a>
+            <a class="collapse-item" href="study_python.html">Python</a>
+            <a class="collapse-item" href="study_raspberrypi.html">Raspberry Pi</a>
+            <a class="collapse-item" href="study_programming.html">Programming</a>
+            <a class="collapse-item" href="study_database.html">Database</a>
+            <a class="collapse-item" href="study_research_support.html">Research & Support</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
+          aria-controls="collapseForm">
+          <i class="fab fa-fw fa-wpforms"></i>
+          <span>Photo</span>
+        </a>
+        <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Photo</h6>
+            <a class="collapse-item" href="../photo/2024_doyoon.html">2024</a>
+            <a class="collapse-item" href="../photo/2023_doyoon.html">2023</a>
+            <a class="collapse-item" href="../photo/2022_doyoon.html">2022</a>
+            <a class="collapse-item" href="../photo/2021_doyoon.html">2021</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
+          aria-controls="collapseTable">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Project</span>
+        </a>
+        <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Project</h6>
+            <a class="collapse-item" href="../project/personal_project.html">Personal Project</a>
+            <a class="collapse-item" href="../project/cooperative_project.html">Cooperative project</a>
+          </div>
+        </div>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePublication"
+          aria-expanded="true" aria-controls="collapsePublication">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Publication</span>
+        </a>
+        <div id="collapsePublication" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Publication</h6>
+            <a class="collapse-item" href="../favorite/general.html">General</a>
+            <a class="collapse-item" href="../publication/publication.html">Publication</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFavorite"
+          aria-expanded="true" aria-controls="collapsePublication">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Favorite</span>
+        </a>
+        <div id="collapseFavorite" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Favorite</h6>
+            <a class="collapse-item" href="../favorite/general.html">General</a>
+            <a class="collapse-item" href="../favorite/development.html">Development</a>
+            <a class="collapse-item" href="../favorite/ce.html">Computer Engineering</a>
+            <a class="collapse-item" href="../favorite/rnd_and_scholarship.html">R&D and Scholarship</a>
+            <a class="collapse-item" href="../favorite/life.html">Life</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-- Sidebar -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+        <!-- TopBar -->
+        <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="navbar-nav ml-auto">
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img class="img-profile rounded-circle" src="../library/ruang/img/boy.png" style="max-width: 60px">
+                <span class="ml-2 d-none d-lg-inline text-white small">Doyoon Jung</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="../profile/profile_korean.html">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile(Korean)
+                </a>
+                <a class="dropdown-item" href="../profile/profile_english.html">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile(English)
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <!-- Topbar -->
+
+        <!-- Container Fluid-->
+        <div class="container-fluid" id="container-wrapper">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">Study / Settings</h1>
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../">Home</a></li>
+                <li class="breadcrumb-item">Study</li>
+                <li class="breadcrumb-item active" aria-current="page">Settings</li>
+              </ol>
+            </div>
+
+            <div class="card">
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">프리젠테이션, 텍스트 파일로 작성한 공부한 내용의 문서들입니다.</h6>
+              </div>
+            </div>
+            <br>
+            <div class="card">
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h8 class="m-0 font-weight-bold">1. Settings</h8>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th>번호</th>
+                    <th>주제명</th>
+                    <th>작성일자</th>
+                    <th>다운로드</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>
+                      Anaconda 3 Installation Guide
+                    </td>
+                    <td>
+                      2022-03-07
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220307_anaconda_3_installation_guide.pptx">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>
+                      Visual Studio Code(User) Installation Guide
+                    </td>
+                    <td>
+                      2022-03-07
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220307_vscode_installation_guide.pptx">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>
+                      Bitnami WAMP Installation Guide
+                    </td>
+                    <td>
+                      2022-03-07
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220307_bitnami_wamp_installation_guide.pptx">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>
+                      Visual Studio Code Language C, Python 3.x Installation Guide
+                    </td>
+                    <td>
+                      2022-03-16
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220316_vscode_lang_c_python_installation_guide.zip">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>
+                      Eclipse - Svn Client Guide
+                    </td>
+                    <td>
+                      2022-03-22
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220322_eclipse_svn_client_guide.pptx">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>
+                      Virtual SVN Server Installation guide
+                    </td>
+                    <td>
+                      2022-03-22
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220322_virtual_svn_server_installation_guide.pptx">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>
+                      Visual Studio Code - SVN Client guide(TortoiseSVN)
+                    </td>
+                    <td>
+                      2022-03-22
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220322_vscode_svn_client_guide.pptx">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>
+                      Linux / Ubuntu 20.04 - Visual Studio Code(C, Python)
+                    </td>
+                    <td>
+                      2022-04-14
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220413_visual_studio_code_linux_ubuntu_20_04.zip">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>
+                      Jupyter notebook - Specific directory setting guide
+                    </td>
+                    <td>
+                      2022-04-16
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220416_jupyter_notebook_specific_directory_setting_guide.pptx">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>
+                      Ubuntu 20.04 - Mysql Basic / control(external connect Settings, Create User, Create DB, grant, revoke db, drop user)
+                    </td>
+                    <td>
+                      2022-04-16
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220416_ubuntu_20_04_mysql_basic_control.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>11</td>
+                    <td>
+                      Ubuntu 20.04 - VirtualBox 6 (Port Forwarding) Guide
+                    </td>
+                    <td>
+                      2022-04-16
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220416_virtualBox_6_port_forwarding_guide.pptx">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>12</td>
+                    <td>
+                      Node.js, React.js - Hello World Guide
+                    </td>
+                    <td>
+                      2022-05-06
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220506_node_js_react_js_guide.pptx">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>13</td>
+                    <td>
+                      OpenCV 4(MS Windows) - Hello World Guide
+                    </td>
+                    <td>
+                      2022-05-10
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220510_opencv_4_ms_windows_hello_world_guide.pptx">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>14</td>
+                    <td>
+                      Raspberry PI4 - USB memory, sd card image burning
+                    </td>
+                    <td>
+                      2022-05-20
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220520_raspberrypi_64bit_image_ready_guide.pptx">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>15</td>
+                    <td>
+                      Raspberry PI4 and Camera Opencv, Bluetooth Install Guide
+                    </td>
+                    <td>
+                      2022-05-20
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220520_raspberrypi4_and_camera_opencv_bluetooth_install_guide.pptx">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>16</td>
+                    <td>
+                      Raspberry PI4 - Python 3.9.2 Tensorflow install Guide
+                    </td>
+                    <td>
+                      2022-05-23
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220523_raspberrypi4_tensorflow_install_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>17</td>
+                    <td>
+                      Raspberry PI4 - Protobuf install Guide(ref: Python 3.9.2 Tensorflow)
+                    </td>
+                    <td>
+                      2022-06-08
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220608_raspberry_pi4_protobuf_install_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>18</td>
+                    <td>
+                      Raspberry PI4 - Wiringpi and Python
+                    </td>
+                    <td>
+                      2022-07-01
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220701_raspberry_pi_4_wiringpi_and_python.zip">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>19</td>
+                    <td>
+                      Debian 11 - Mariadb 10.05 Setting Guide(Create User, Grant, DB, server.cnf)
+                    </td>
+                    <td>
+                      2022-07-09
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220709_debian11_mariadb_10_05_settings_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>
+                      Debian 11 - SVNserve repos Setting guide
+                    </td>
+                    <td>
+                      2022-07-09
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220709_debian11_svn_repos_settings_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>21</td>
+                    <td>
+                      Ubuntu 22.04 - Xrdp, Xfce4 Setting guide
+                    </td>
+                    <td>
+                      2022-07-16
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220716_ubuntu_22_04_xrdp_xfce4_settings_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>22</td>
+                    <td>
+                      Ubuntu Server 22.04 - Wireless Setting guide
+                    </td>
+                    <td>
+                      2022-07-16
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220716_ubuntu_server_22_04_wireless_settings_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>23</td>
+                    <td>
+                      Ubuntu Server 22.04 - Hadoop 3.3.3 Cluster Setting guide
+                    </td>
+                    <td>
+                      2022-07-16
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220716_ubuntu_server_22_04_hadoop_cluster_settings_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>24</td>
+                    <td>
+                      3D Printer / 신도리코 3dswox 1 User Guide
+                    </td>
+                    <td>
+                      2022-09-06
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/220906_3d_printer_3dswox_1_user_guide.pptx">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>25</td>
+                    <td>
+                      Git, Github, Gitlab User Guide
+                    </td>
+                    <td>
+                      2022-10-22<br>(Updated 12-09)
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/221209_git_github_gitlab_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>26</td>
+                    <td>
+                      Git, Ubuntu 22.04 Install Guide
+                    </td>
+                    <td>
+                      2022-11-05
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/221105_git_ubuntu_22_04_install_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>27</td>
+                    <td>
+                      QGroundControl Development Setting Guide
+                    </td>
+                    <td>
+                      2022-11-05
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/221105_qgroundcontrol_development_setting_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>28</td>
+                    <td>
+                      Qt5, Ubuntu 22.04 install guide
+                    </td>
+                    <td>
+                      2022-11-05
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/221105_qt_ubuntu_22_04_install_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                 <tr>
+                    <td>29</td>
+                    <td>
+                      Ubuntu 22.04 QGC Development Guide
+                    </td>
+                    <td>
+                      2022-11-05
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/221105_ubuntu_22_04_qgc_development_guide.pptx">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                 <tr>
+                    <td>30</td>
+                    <td>
+                      Let's encrypt - SSL Settings(Apache 2.4, Ubuntu 22.04)
+                    </td>
+                    <td>
+                      2022-12-14
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/221214_letsencrypt_free_ssl_setting_ubuntu_22_04_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                 <tr>
+                    <td>31</td>
+                    <td>
+                      Let's encrypt - SSL Renew and crontab(Apache 2.4, Ubuntu 22.04)
+                    </td>
+                    <td>
+                      2022-12-14
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/221214_letsencrypt_ssl_renew_crontab_ubuntu_22_04_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                 <tr>
+                    <td>32</td>
+                    <td>
+                      Let's encrypt - SSL and gitlab with Ubuntu 22.04
+                    </td>
+                    <td>
+                      2022-12-14
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/221214_letsencrypt_ssl_gitlab_ubuntu_22_04_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                 <tr>
+                    <td>33</td>
+                    <td>
+                      NFS Guide with Ubuntu 22.04
+                    </td>
+                    <td>
+                      2022-12-14
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/221214_ubuntu_22_04_nfs_setting_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                 <tr>
+                    <td>34</td>
+                    <td>
+                      NFS Booting mount guide with Ubuntu 22.04
+                    </td>
+                    <td>
+                      2022-12-14
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/221214_ubuntu_22_04_booting_nfs_setting_guide.txt">
+                        다운로드(Download)	
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                     <td>35</td>
+                     <td>
+                       Linux Apache 2.4, MariaDB, PHP 8.1, Laravel 9 Settings Guide with Ubuntu 22.04
+                     </td>
+                     <td>
+                       2022-12-26
+                     </td>
+                     <td>
+                       <a href="../file/study/settings/221226_lamp_laravel9_setting_guide_with_ubuntu_22_04.txt">
+                         다운로드(Download)	
+                       </a>
+                     </td>
+                   </tr>
+                   
+                  <tr>
+                    <td>36</td>
+                    <td>
+                      LetsEncrypt - Tomcat 9, Ubuntu 22.04 Multi Domain, Multi SSL guide
+                    </td>
+                    <td>
+                      2023-01-26
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/230126_letsencrypt_tomcat9_ubuntu_22_04_multi_ssl_guide.zip">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>37</td>
+                    <td>
+                      LetsEncrypt and Crontab guide (Ubuntu 22.04)
+                    </td>
+                    <td>
+                      2023-01-26
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/230126_letsencrypt_crontab_ubuntu_22_04_guide.txt">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>38</td>
+                    <td>
+                      Apache 2.4 - mod_proxy and SSL Redirect guide (Ubuntu 22.04)
+                    </td>
+                    <td>
+                      2023-02-10
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/230210_apache2_mod_proxy_and_ssl_redirect_guide.zip">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>39</td>
+                    <td>
+                      Spring boot 3 - gradle / Web Distribute guide (Ubuntu 22.04)
+                    </td>
+                    <td>
+                      2023-02-10
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/230210_spring_boot_3_gradle_web_distribute_guide.zip">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>40</td>
+                    <td>
+                      Ubuntu Server 20.04(22.04) - Korean Language Problem
+                    </td>
+                    <td>
+                      2023-03-05
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/230305_ubuntu_server_korean_problem_guide.txt">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>41</td>
+                    <td>
+                      Ubuntu Server 20.04(22.04) - Gitlab command guide
+                    </td>
+                    <td>
+                      2023-03-05
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/230305_ubuntu_gitlab_command_guide.txt">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>42</td>
+                    <td>
+                      AI / PyTorch, CUDA, Miniconda, Anaconda, ipykernel, Shell with nohup anaconda - Setting guide
+                    </td>
+                    <td>
+                      2023-04-01
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/230401_pytorch_cuda_miniconda_anaconda_nohup_settings_guide.pptx">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>43</td>
+                    <td>
+                      AI / Jupyter Notebook - Setting guide
+                    </td>
+                    <td>
+                      2023-04-16
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/230416_jupyter_notebook_settings.txt">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>44</td>
+                    <td>
+                      Apache 2.4 - proxypass, rewrite, htaccess conf - Setting guide
+                    </td>
+                    <td>
+                      2023-04-26
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/230426_apache2_proxy_rewrite_htaccess_conf_guide.txt">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>45</td>
+                    <td>
+                      MS Windows 11, Ubuntu 22.04(WSL2), Cuda 12.1, xrdp, pytorch, ide setup - Setting guide
+                    </td>
+                    <td>
+                      2024-01-28
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/240128_ms_win11_wsl2_ubuntu22_04_cuda_xrdp_pytorch_ide_setup.zip">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>46</td>
+                    <td>
+                      MS Windows 11, Ubuntu 22.04(WSL2), anaconda3, Pycharm, Vscode, Remote WSL2(VSCode) - Setting guide
+                    </td>
+                    <td>
+                      2024-01-28
+                    </td>
+                    <td>
+                      <a href="../file/study/settings/240128_ms_win11_wsl2_ubuntu22_04_anaconda3_pycharm_vscode_setup.zip">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+          </div>
+
+
+          <!-- Modal Logout -->
+          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabelLogout">Ohh No!</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Are you sure you want to logout?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
+                  <a href="login.html" class="btn btn-primary">Logout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!---Container Fluid-->
+      </div>
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; 2022~<script> document.write(new Date().getFullYear()); </script> - Doyoon Jung Website
+              <b><a href="https://rabbitsun2.github.io/" target="_blank">rabbitsun2</a></b>
+            </span>
+          </div>
+        </div>
+
+      </footer>
+      <!-- Footer -->
+    </div>
+  </div>
+
+  <!-- Scroll to top -->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <script src="../library/ruang/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../library/ruang/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="../library/ruang/js/ruang-admin.min.js"></script>
+  <script src="../library/ruang/vendor/chart.js/Chart.min.js"></script>
+  <script src="../library/ruang/js/demo/chart-area-demo.js"></script>  
+
+  <!-- Slick -->
+  <script src="../library/slick-1.8.1/slick/slick.min.js" type="text/javascript"></script>
+
+  <script>
+      $('.autoplay').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      });
+  </script>
+
+</body>
+
+</html>

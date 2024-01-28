@@ -1,0 +1,19 @@
+/*
+	Created Date: 2022-11-05
+	Author: Doyoon Jung(정도윤) / rabbit.white@daum.net
+	Subject: Git Install Guide with Ubuntu 22.04
+	Description:
+
+*/
+
+Step 1. Update the system
+# sudo apt-get update
+# sudo apt-get upgrade -y
+
+Step 2. Install git
+# sudo apt install git
+
+Step 3. Verify Installation
+# git --version
+
+

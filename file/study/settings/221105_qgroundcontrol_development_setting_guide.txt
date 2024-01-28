@@ -1,0 +1,38 @@
+/*
+	Created Date: 2022-11-05
+	Author: Doyoon Jung(정도윤) / rabbit.white@daum.net
+	Subject: QGroundControl with Ubuntu 22.04
+	Description:
+
+*/
+
+Step 1. Git clone
+# git clone https://github.com/mavlink/qgroundcontrol.git --recursive
+
+Step 2. Submodule Update
+# git submodule update --init --recursive
+
+Step 3. GStreamer
+Linux
+Use apt-get to install GStreamer 1.0
+
+# list=$(apt-cache --names-only search ^gstreamer1.0-* | awk '{ print $1 }' | sed -e /-doc/d | grep -v gstreamer1.0-hybris)
+# sudo apt-get install $list
+# sudo apt-get install libgstreamer-plugins-base1.0-dev
+# sudo apt-get install libgstreamer-plugins-bad1.0-dev 
+
+The build system is setup to use pkgconfig and it will find the necessary headers and libraries automatically.
+
+Step 4. Projects 
+-> Desktop Qt 5.15.2 GCC로 설정할 것
+
+-> Clean Steps
+Override /usr/bin/make:    /usr/bin/make로 입력할 것
+
+Step 5. Missing header files ("airmap/client.h no such file or directory")
+# sudo apt-get install -y build-essential curl
+# curl --location --output "$${AIRMAP_PLATFORM_SDK_FILEPATH}" "$${AIRMAP_PLATFORM_SDK_URL}"
+
+Step 6. fixed issue
+# sudo usermod -a -G dialout $USER
+# sudo apt-get remove modemmanager

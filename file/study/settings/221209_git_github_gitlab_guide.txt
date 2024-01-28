@@ -1,0 +1,420 @@
+/*
+	Subject: Git, Github, GitLab Guide
+	Create Date: 2022-10-22 (Sat)
+	Author: Doyun Jung (rabbit.white@daum.net)
+	Description:
+	1. Gitlab 추가, Doyoon Jung, 2022-12-09.
+
+*/
+
+------------------------------------------------------------------------------
+1. Setting Gitlab
+------------------------------------------------------------------------------
+
+# sudo cd /var/opt/gitlab/gitlab-rails/etc
+# vim gitlab.yml
+
+## Web server settings (note: host is the FQDN, do not include http://)
+host: gitlab.domain.com
+port: 8080
+https: false
+
+# sudo gitlab-ctl reconfigure
+
+# 일부 변경된 설정만 적용
+$ sudo gitlab-ctl restart
+
+예1) 도메인 주소 또는 IP주소, 포트가 변경되었을 때
+# sudo vim /etc/gitlab/gitlab.rb
+
+external_url "http://gitlab.example.com"
+
+# sudo gitlab-ctl reconfigure
+
+# 일부 변경된 설정만 적용
+$ sudo gitlab-ctl restart
+
+------------------------------------------------------------------------------
+2. Setup Git
+------------------------------------------------------------------------------
+* MS Windows 10 / 11
+-> https://git-scm.com/download/win
+
+* Ubuntu 22.04
+# sudo apt-get install git
+
+$ git config --global user.name "Doyun Jung"
+$ git config --global user.email "rabbitsun2@daum.net"
+
+----------------------------------------------------------------------------------
+예2-1) HTTPS - Repository SSL인증서 오류 해결방법
+git에서 https repository 연결시 SSL 인증서 오류 해결법
+- git config --global http.sslVerify false
+
+예2-2) SSH 인증서 생성하기
+# ssh-keygen
+
+예2-3) github 연동하기
+$ git config --global user.name "깃 허브 계정 이름"
+$ git config --global user.email "깃 허브 로그인하는 이메일 계정"
+$ git config --global user.password "깃 허브 로그인하는 이메일 계정의 비밀번호"
+
+혹시 오타가 발생했을 수 있으니 다음 명령어로 확인해준다
+$ git config --list
+
+그 후 자신의 깃 주소를 연동시켜준다
+$ git remote add origin 앞에 띄어쓰고 깃 허브 저장소 주소 복붙
+만들어준 디렉토리에 있는 내용을 git에 푸쉬해본다
+
+예) fatal: not a git repository (or any of the parent directories): .git 에러가
+발생하는 이유는 현재 폴더에 git에 대한 정보 담은 파일이 없기 때문에 발생하는 에러라고 합니다.
+     해결 방법: -> $ git init
+
+$ git add .
+$ git commit -m "깃 허브에 저장 될 메시지 입력 한글도 가능"
+$ git push origin master // 깃 허브에 푸쉬
+  -> 이렇게 하면 파일의 내용을 push 할 수 있음.
+       만약 오류가 생겨서 파일을 없애야 할 경우 다음과 같은 명령어를 입력한다
+
+$ git remote rm origin master
+// remote 삭제! 주의 !
+    -> 만약 main브런치로 바꿔주고 싶은경우 다음과 같은 명령어를 입력해준다
+        $ git branch -m main
+
+
+
+------------------------------------------------------------------------------
+3. Git Command(Basic)
+------------------------------------------------------------------------------
+
+---------------------------------------------------------------------
+설명                                |             명령어
+---------------------------------------------------------------------
+저장소의 생성                    |             git init
+저장소에 파일 추가              |         git add <filename>
+저장소에 변경 내용의 반영    |          git commit
+저장소의 상태 확인             |          git status
+---------------------------------------------------------------------
+
+# mkdir test_git
+# cd test_git
+# notepad hello.html
+
+<html>
+<body>
+	Hello World
+</body>
+</html>
+
+# git status
+# git init				// Repository 만들기
+# git status
+# git add hello.html
+# git commit -m "Add hello.html"
+
+git commit -m "헬로우"
+git push
+
+
+------------------------------------------------------------------------------
+4. Branch
+------------------------------------------------------------------------------
+
+브렌치 보기                         git branch
+---------------------------------------------------------
+1-1. test1 브렌치 만들기
+브렌치 만들기                      git branch test1
+브렌치 보기                         git branch
+* master
+  test 출력
+
+---------------------------------------------------------
+1-2. test1 브렌치로 변경
+브렌치 변경 git checkout test1
+notepad hello.html
+
+<html>
+<body>
+	hello world.
+	bran2
+</body>
+</html>
+
+---------------------------------------------------------
+1-3. git 변경 상태
+git status
+git commit -m "Branch Test1"
+
+---------------------------------------------------------
+1-4. master 브렌치로 변경
+브렌치 변경 
+git checkout master
+
+notepad hello.html
+반영이 안 된 걸 확인할 수 있음.
+
+---------------------------------------------------------
+1-5. test1 브렌치로 변경
+브렌치 변경 
+git checkout test1
+notepad hello.html
+
+---------------------------------------------------------
+1-5. git merge 병합
+git merge test1
+
+---------------------------------------------------------
+1-6. git branch 확인
+git branch
+* master
+  test1
+notepad hello.html
+
+---------------------------------------------------------
+1-7. git branch 삭제
+git branch -d test1
+
+---------------------------------------------------------
+1-8. git branch 확인
+git branch
+* master
+
+------------------------------------------------------------------------------
+5. Merge 충돌 해결
+------------------------------------------------------------------------------
+
+2-1. 초기 생성
+# mkdir test_git
+# cd test_git
+# notepad hello.html
+
+<html>
+<body>
+	Hello World
+</body>
+</html>
+
+# git status
+# git init				// Repository 만들기
+# git status
+# git add hello.html
+# git commit -m "Add hello.html"
+
+2-2 Test Branch 생성
+# git branch Test_Branch
+# git branch
+   Test_Branch
+* master
+
+# git checkout Test_Branch
+# notepad hello.html
+
+<html>
+<body>
+	Hello Branch2
+</body>
+</html>
+
+# git status
+# git add hello.html
+# git commit -m "Edit hello.html on Test Branch"
+
+2-3. Master로 이동
+# git branch
+* Test_Branch
+   master
+
+# git checkout master
+   Test_Branch
+* master
+
+2-4. 반영 여부 확인해보기
+# notepad hello.html
+
+반영되지 않았음. 
+-> Test_Branch에 있음.
+
+2-4-1. 충돌 상황 만들기
+<html>
+<body>
+	Edit Master Branch
+</body>
+</html>
+
+2-4-2. 상태 보기
+# git status
+
+2-4-3. 추가하기
+# git add hello.html
+
+2-4-4. 커밋
+# git commit -m "Edit hello.html on Master Branch"
+
+지금 충돌 상황은 Master Branch 하나하고, Test_Branch 두 개로 구성됨.
+
+2-5. branch 상태 보기
+# git status
+   Test_Branch
+* master
+
+2-6. 병합 시도하기 - Test_Branch
+# git merge Test_Branch
+Auto-merging hello.html
+CONFLICT (content): Merge conflict in hello.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+2-6-1. 해결하기 - 상태보기
+# git status
+
+(red color)both modified:             hello.html
+
+# notepad hello.html
+
+[충돌 원문]
+<html>
+<body>
+<<<<<<< HEAD
+Edit Master Branch
+=======
+Edit in Test_Branch
+>>>>>>> Test_Branch
+</body>
+</html>
+
+[충돌 수정]
+<html>
+<body>
+Edit Master Branch
+Edit in Test_Branch
+</body>
+</html>
+
+2-6-2. 추가
+# git add hello.html
+
+2-6-3. 커밋(Final)
+# git commit -m "Final hello.html"
+[master a5e1da7] Final hello.html
+
+2-6-4. 내용 확인
+# notepad hello.html
+
+2-6-5. 로그 확인
+# git log
+
+2-6-6. 시각화 로그 확인
+# gitk
+
+------------------------------------------------------------------------------
+7. 원격 저장소와 PR(Pull Request)
+------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+명령어            |             설명
+--------------------------------------------------------------------------
+Clone             |  Remote repository의 내용을 복제한다.
+Push              |  Remote repository로 보낸다.
+Pull               |  Remote repository에 있는 내용을 가져온다.
+Fetch             |  Remote repository에서 변경 내용 가져오기
+--------------------------------------------------------------------------
+
+               Fork
+|-------|  ---------------->    |-------|  test
+|        |                          |        |
+|-------|  <----------------    |-------|
+             Pull Request         |   <>
+                                     |    |   commit
+doyun                      clone |    |
+                                     |    |
+                                    <>
+                                    |-------|
+                                    |        |
+                                    |-------|
+               local repository
+
+
+Fig 1. Remote Storage and Pull Request Diagram
+
+
+[1번 PC]
+4-1. github repository 생성하기
+* (PC1: doyun 계정으로 로그인하기)
+   https://github.com/doyun
+   "gitTest" Repository 생성하기
+
+[2번 PC]
+4-2. github 2번 PC로 이동
+* (test계정으로 로그인하기)
+   https://github.com/doyun/gitTest
+
+fork 클릭
+-> test 계정 클릭
+
+(잠시 기다린다.)
+
+4-2-1. 로컬 복제 생성(Clone)
+# cd Documents/github
+# git clone https://github.com/test/gitTest
+# cd gitTest
+# notepad README.md
+
+------------------------------------------------------
+# github
+## 깃허브 테스트입니다.
+------------------------------------------------------
+(유니코드로 저장할 것 -> 한글 깨짐 방지)
+
+4-2-2. 파일 추가 생성 "hello.html"
+# notepad hello.html
+------------------------------------------------------
+<html>
+<body>
+깃허브 테스트 입니다.
+</body>
+</html>
+------------------------------------------------------
+(유니코드로 저장할 것 -> 한글 깨짐 방지)
+
+4-2-3. git 상태 
+# git status
+
+   modified:     README.md
+
+Untracked files:
+    .......
+   hello.html
+
+4-2-4. git 파일 모두 추가
+# git add *
+
+4-2-5. git 상태
+# git status
+
+(green color)
+
+4-2-6. git commit 
+# git commit -m "hello.html 파일의 추가"
+(로컬 저장소에서의 작업 끝남)
+
+4-2-7. git push
+# git push
+
+4-2-7. 웹 사이트에 접속해서 "새로고침" 해보기
+-> https://github.com/test/gitTest
+    업로드 상태 - 괜찮은지 확인
+
+4-2-8. New pull request하기
+New pull request 클릭
+-> Create pull request 클릭
+    => HTML 파일이 필요할 것 같아서 추가 해 봤어요.
+         Create pull request 클릭
+
+[1번 PC]
+4-3. Doyun으로 이동
+      https://github.com/doyun/gitTest
+       "Pull requests" 클릭
+
+     주인이 내용보고 괜찮다고 싶으면,
+       "Merge pull request" 클릭
+      -> Pull request closed
+          if you wish, you can delete your fork of doyun/gitTest

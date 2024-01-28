@@ -1,0 +1,15 @@
+/* 
+	제목: Vim Easy Guide
+	작성일자: 2022-03-18
+	파일명: 220318_linux_vim_easy_guide.txt
+	작성자: 정도윤
+	이메일: rabbit.white@daum.net
+*/
+
+(사용 방법)
+vim {파일명}
+:set nu 	// 줄 번호 생성
+:set nu!	// 줄 번호 사라지기
+:{번호}	// 특정 줄 번호로 이동
+X	// 백스페이스 키
+x	// Del키 

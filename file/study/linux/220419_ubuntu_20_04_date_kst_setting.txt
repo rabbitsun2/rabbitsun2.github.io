@@ -1,0 +1,37 @@
+/*
+	Subject: KST(한국 표준 시간) 설정하기 - Ubuntu 20.04
+	Author: Doyun Jung(정도윤)
+	Created Date: 2022-04-19
+	Description:
+*/
+
+1. 현재 시간 조회
+# date
+
+2. 시간 설정
+# tzselect
+
+3. tzselect 설치하기
+# apt install tzdata
+
+/home/a $ vim .profile
+
+TZ='Asia/Seoul'; export TZ
+------ 추가하기
+
+4. NTP 시간 동기화
+# sudo apt-get install ntp
+
+# sudo vim /etc/ntp.conf
+server 1.kr.pool.ntp.org
+server 1.asia.pool.ntp.org
+server time.bora.net
+
+# sudo ufw allow 123
+
+# sudo service ntp restart
+
+# sudo ntpq -p
+
+5. 방법2 - 시간 변경하기
+# sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime

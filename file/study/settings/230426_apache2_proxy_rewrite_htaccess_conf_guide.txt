@@ -1,0 +1,79 @@
+/*
+	Subject: Apache 2 - ProxyPass, Rewrite, .htaccess 허용 conf guide
+	Created Date: 2023-04-26(Wed)
+	Author: Doyoon Jung (rabbitsun2@gmail.com)
+	Description:
+	
+
+*/
+
+1. Diagram
+
+--------------      ---------------------
+|  Web (80)  | <--- | Proxy Web (7071)  |
+--------------      ---------------------
+
+
+2. sites-available/*.conf 파일 수정
+
+<VirtualHost *:80>
+    ServerAdmin admin@localhost
+    ServerName mydomain.com
+    ServerAlias www.mydomain.com
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    LogLevel warn
+
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+#    RewriteLog ${APACHE_LOG_DIR}/rewrite.log
+#    RewriteLogLevel 9
+
+    Alias /images/ "/var/www/images/"
+
+    RewriteEngine On
+
+    # rewrite rule to prevent proxy exploit
+    RewriteCond  %{REQUEST_URI}  !^$
+    RewriteCond  %{REQUEST_URI}  !^/
+    RewriteRule  .*              -    [R=400,L]
+
+    # consolidate non-www requests onto the www subdomain
+    RewriteCond  %{HTTP_HOST}    ^yourdomain\.com$
+    RewriteRule  ^(.*)           http://www.yourdomain.com/$1  [R=301,L]
+
+    # Add a trailing slash to the URL (ignoring images, CSS and JavaScript)
+    RewriteCond  %{REQUEST_URI}  !^/(images)(.*)$
+    RewriteCond  %{REQUEST_URI}  !^/(.*)(.js|.css)$
+    RewriteCond  %{REQUEST_URI}  !(.*)/$
+    RewriteRule  ^(.*)$          http://%{HTTP_HOST}$1/ [R=301,L]
+
+    # proxy to the Jellyfish server (ignoring images)
+    RewriteCond  %{REQUEST_URI}  !^/(images)(.*)$
+    RewriteRule  ^(/.*)$         http://app-server:8181/jellyfish$1  [P]
+    ProxyPassReverse  /          http://app-server:8181/jellyfish/
+
+    # suppress mod_security rules that were giving false positives
+#    SecRuleRemoveById 981059 981060
+
+    <Directory "/var/www/images">
+            Options Indexes MultiViews FollowSymLinks
+            AllowOverride None
+            Order allow,deny
+            Allow from all
+    </Directory>
+
+</VirtualHost>
+
+3. .htaccess 허용하기 (Proxy Web - 7070)
+
+# vi /etc/apache2/apache2.conf
+
+    <Directory "/var/www">
+            Options Indexes FollowSymLinks
+            #AllowOverride None
+            AllowOverride All
+            Require all granted
+    </Directory>
+
+'AllowOverride All'으로 수정할 것

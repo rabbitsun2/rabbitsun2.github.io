@@ -1,0 +1,60 @@
+/*
+	Created Date: 2022-12-14 (Wed)
+	Author: Doyoon Jung(정도윤) / rabbit.white@daum.net
+	Subject: Let's Encrypt Free SSL Install Guide with Ubuntu 22.04, Apache 2.4
+	Description:
+*/
+
+[설치 순서]
+1. 인증서 발급용 Let's encrypt SW 설치
+$ apt-get install letsencrypt
+
+2. 인증서 발급
+$ letsencrypt certonly --webroot --webroot-path=사이트설치경로 -d 해당도메인주소입력
+(예시 :  letsencrypt certonly --webroot --webroot-path=/var/www/html -d cakeon-project.xyz)
+
+2-1. 인증서 문제 발생시 또는 인증서 만료기간 도래시 메일 알림 주소
+      알림 받을 메일 주소 입력
+
+* 중요: http 오류가 발생하면, 인증서가 생성되지 않음.
+
+3. 인증서 설치 디렉토리 및 키 설치 여부 확인
+   - 설치 경로 : /etc/letsencrypt/
+   - 키 경로 : /etc/letsencrypt/live/해당도메인주소/
+  
+
+5. Apache 웹서버의 SSL 관련 가상호스트 환경설정 수정
+   SSL 환경설정 파일 열기
+   $ nano /etc/apache2/sites-available/default-ssl.conf
+
+   아래 내용을 복사 후 붙여 넣기.
+   단, 해당 도메인 주소는 변경 필요.
+   변경 완료 후 저장하고 나오기.
+
+<IfModule mod_ssl.c>
+ <VirtualHost *:443> 
+  ServerName 해당도메인주소
+  DocumentRoot  /var/www/html
+  SSLEngine on  
+  SSLProtocol all -SSLv2 -SSLv3  
+  SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA   
+  SSLHonorCipherOrder on   
+  SSLCertificateFile "/etc/letsencrypt/live/해당도메인주소/cert.pem"
+  SSLCertificateKeyFile "/etc/letsencrypt/live/해당도메인주소/privkey.pem"
+  SSLCertificateChainFile "/etc/letsencrypt/live/해당도메인주소/chain.pem"  
+ </VirtualHost>
+</IfModule>
+
+6. Apache 웹서버의 SSL 가상호스트 사이트 설정 활성화
+$ a2ensite default-ssl.conf
+
+7. Apache 웹서버의 SSL 모듈 활성화
+$ a2enmod ssl
+
+8. Apache 웹서버 서비스 재시작
+$ /etc/init.d/apache2 restart
+
+9. 웹브라우저에서 SSL 프로토콜로 접근 테스트
+   접속 주소 : https://해당도메인주소
+
+10. 완료

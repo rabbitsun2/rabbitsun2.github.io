@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- 검색엔진 최적화(SEO) -->
+  <meta name="author" content="정도윤, Doyoon Jung">
+  <meta name="description"
+        content="정도윤 홈페이지입니다. This website is Doyoon Jung Homepage" />
+  <!-- OpenGraph 최적화 -->
+  <meta name="og:site_name" content="정도윤 Github Website" />
+  <meta name="og:title" content="Study/Programming ::: Doyoon Jung(정도윤)" />
+  <meta name="og:description"
+        content="정도윤 홈페이지입니다. This website is Doyoon Jung Homepage" />
+
+  <title>Study/Programming ::: Doyoon Jung(정도윤)</title>
+
+  <link href="../images/logo/logo.ico" rel="icon">
+  <link href="../library/ruang/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../library/ruang/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../library/ruang/css/ruang-admin.min.css" rel="stylesheet">
+  
+  <!-- Fonts -->
+  <link href="../dist/fonts/NanumGothic/fonts.css" rel="stylesheet">
+
+  <!-- Script -->
+  <script src="../js/home.js"></script>
+
+  <!-- Plug-ins -->
+  <script src="../library/ruang/vendor/jquery/jquery.min.js"></script>
+  <link rel="stylesheet" href="../library/bxslider-4-4.2.12/dist/jquery.bxslider.css">
+  <script src="../library/bxslider-4-4.2.12/dist/jquery.bxslider.min.js"></script>
+
+  <!-- Slider -->  
+  <script>
+    $(document).ready(function(){
+      $('.slider1').bxSlider();
+    });
+  </script>
+
+</head>
+
+<body id="page-top">
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.html">
+        <div class="sidebar-brand-icon">
+          <img src="../images/logo/logo.png">
+        </div>
+        <div class="sidebar-brand-text mx-3">정도윤</div>
+      </a>
+      <hr class="sidebar-divider my-0">
+      <li class="nav-item">
+        <a class="nav-link" href="../index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+        Menu
+      </div>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfile"
+          aria-expanded="true" aria-controls="collapseProfile">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Profile</span>
+        </a>
+        <div id="collapseProfile" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Profile</h6>
+            <a class="collapse-item" href="../profile/profile_korean.html">Profile(Korean)</a>
+            <a class="collapse-item" href="../profile/profile_english.html">Profile(English)</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
+          aria-expanded="true" aria-controls="collapseBootstrap">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Study</span>
+        </a>
+        <div id="collapseBootstrap" class="collapse show" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Study</h6>
+            <a class="collapse-item" href="study_avr.html">AVR</a>
+            <a class="collapse-item" href="study_linux.html">Linux</a>
+            <a class="collapse-item" href="study_settings.html">Settings</a>
+            <a class="collapse-item" href="study_python.html">Python</a>
+            <a class="collapse-item" href="study_raspberrypi.html">Raspberry Pi</a>
+            <a class="collapse-item active" href="study_programming.html">Programming</a>
+            <a class="collapse-item" href="study_database.html">Database</a>
+            <a class="collapse-item" href="study_research_support.html">Research & Support</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
+          aria-controls="collapseForm">
+          <i class="fab fa-fw fa-wpforms"></i>
+          <span>Photo</span>
+        </a>
+        <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Photo</h6>
+            <a class="collapse-item" href="../photo/2024_doyoon.html">2024</a>
+            <a class="collapse-item" href="../photo/2023_doyoon.html">2023</a>
+            <a class="collapse-item" href="../photo/2022_doyoon.html">2022</a>
+            <a class="collapse-item" href="../photo/2021_doyoon.html">2021</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
+          aria-controls="collapseTable">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Project</span>
+        </a>
+        <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Project</h6>
+            <a class="collapse-item" href="../project/personal_project.html">Personal Project</a>
+            <a class="collapse-item" href="../project/cooperative_project.html">Cooperative project</a>
+          </div>
+        </div>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePublication"
+          aria-expanded="true" aria-controls="collapsePublication">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Publication</span>
+        </a>
+        <div id="collapsePublication" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Publication</h6>
+            <a class="collapse-item" href="../favorite/general.html">General</a>
+            <a class="collapse-item" href="../publication/publication.html">Publication</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFavorite"
+          aria-expanded="true" aria-controls="collapsePublication">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Favorite</span>
+        </a>
+        <div id="collapseFavorite" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Favorite</h6>
+            <a class="collapse-item" href="../favorite/general.html">General</a>
+            <a class="collapse-item" href="../favorite/development.html">Development</a>
+            <a class="collapse-item" href="../favorite/ce.html">Computer Engineering</a>
+            <a class="collapse-item" href="../favorite/rnd_and_scholarship.html">R&D and Scholarship</a>
+            <a class="collapse-item" href="../favorite/life.html">Life</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-- Sidebar -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+        <!-- TopBar -->
+        <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="navbar-nav ml-auto">
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img class="img-profile rounded-circle" src="../library/ruang/img/boy.png" style="max-width: 60px">
+                <span class="ml-2 d-none d-lg-inline text-white small">Doyoon Jung</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="../profile/profile_korean.html">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile(Korean)
+                </a>
+                <a class="dropdown-item" href="../profile/profile_english.html">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile(English)
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <!-- Topbar -->
+
+        <!-- Container Fluid-->
+        <div class="container-fluid" id="container-wrapper">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">Study / Programming</h1>
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../">Home</a></li>
+                <li class="breadcrumb-item">Study</li>
+                <li class="breadcrumb-item active" aria-current="page">Programming</li>
+              </ol>
+            </div>
+
+            <div class="card">
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">프리젠테이션, 텍스트 파일로 작성한 공부한 내용의 문서들입니다.</h6>
+              </div>
+            </div>
+            <br>
+            <div class="card">
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h8 class="m-0 font-weight-bold">1. Programming</h8>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th>번호</th>
+                    <th>주제명</th>
+                    <th>작성일자</th>
+                    <th>다운로드</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>
+                      Codeigniter 4, bitnami guide(MVC, Routing, Helper, DB) with Php 7.4(higher)
+                    </td>
+                    <td>
+                      2022-12-23
+                    </td>
+                    <td>
+                      <a href="../file/study/programming/221222_codeigniter_4_php_8_bitnami_guide.zip">
+                        다운로드(Download)	
+                      </a><br>
+		     <a href="https://github.com/rabbitsun2/codeigniter4-mvc-db-library-fileupload-helper">
+                        Github
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>2</td>
+                    <td>
+                      Codeigniter 4, bitnami guide(DB, Library[Fileupload]) with Php 7.4(higher)
+                    </td>
+                    <td>
+                      2022-12-23
+                    </td>
+                    <td>
+                      <a href="../file/study/programming/221223_codeigniter_4_php_8_db_handler_and_fileupload.zip">
+                        다운로드(Download)
+                      </a><br>
+		     <a href="https://github.com/rabbitsun2/codeigniter4-mvc-db-library-fileupload-helper">
+                        Github
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>3</td>
+                    <td>
+                      Laravel 9, Composer, MVC 패턴, MariaDB, bitnami guide with Php 7.4(higher)
+                    </td>
+                    <td>
+                      2022-12-25
+                    </td>
+                    <td>
+                      <a href="../file/study/programming/221225_composer_laravel_9_php_8_new_project_db_mvc_guide.zip">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>4</td>
+                    <td>
+                      Laravel 9, Board - list, write, validation, route, db bind, multi-upload, GD captcha guide with Php 7.4(higher)
+                    </td>
+                    <td>
+                      2023-01-01
+                    </td>
+                    <td>
+                      <a href="../file/study/programming/230101_laravel_9_php_8_board_list_write_guide.zip">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>5</td>
+                    <td>
+                      Codeigniter 4, Board - list, write, validation, route, db bind, multi-upload, GD captcha guide with Php 7.4(higher)
+                    </td>
+                    <td>
+                      2023-01-01
+                    </td>
+                    <td>
+                      <a href="../file/study/programming/230101_codeigniter_4_php_8_board_list_write_guide.zip">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>6</td>
+                    <td>
+                      	PHP - Naver, Kakao Login and callback api
+                    </td>
+                    <td>
+                      2023-01-22
+                    </td>
+                    <td>
+                      <a href="../file/study/programming/230122_naver_kakao_login_callback_api.zip">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>7</td>
+                    <td>
+                      Spring boot3 - Spring Security 5.7 m3 apply guide
+                    </td>
+                    <td>
+                      2023-02-10
+                    </td>
+                    <td>
+                      <a href="../file/study/programming/230210_spring_boot3_spring_security_5_7_m3_apply_guide.zip">
+                        다운로드(Download)
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>8</td>
+                    <td>
+                      Spring boot3 - Spring Security 5.7 m3 practice
+                    </td>
+                    <td>
+                      2023-02-17
+                    </td>
+                    <td>
+                      <a href="https://github.com/rabbitsun2/spring_boot_3_and_security_5_7_m3_example">
+                        Github
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+          
+          <!-- Modal Logout -->
+          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabelLogout">Ohh No!</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Are you sure you want to logout?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
+                  <a href="login.html" class="btn btn-primary">Logout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!---Container Fluid-->
+      </div>
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; 2022~<script> document.write(new Date().getFullYear()); </script> - Doyoon Jung Website
+              <b><a href="https://rabbitsun2.github.io/" target="_blank">rabbitsun2</a></b>
+            </span>
+          </div>
+        </div>
+
+      </footer>
+      <!-- Footer -->
+    </div>
+  </div>
+
+  <!-- Scroll to top -->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <script src="../library/ruang/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../library/ruang/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="../library/ruang/js/ruang-admin.min.js"></script>
+  <script src="../library/ruang/vendor/chart.js/Chart.min.js"></script>
+  <script src="../library/ruang/js/demo/chart-area-demo.js"></script>  
+
+  <!-- Slick -->
+  <script src="../library/slick-1.8.1/slick/slick.min.js" type="text/javascript"></script>
+
+  <script>
+      $('.autoplay').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      });
+  </script>
+
+</body>
+
+</html>
