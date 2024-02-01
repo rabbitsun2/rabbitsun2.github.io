@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- 검색엔진 최적화(SEO) -->
+  <meta name="author" content="정도윤, Doyoon Jung">
+  <meta name="description"
+        content="정도윤 홈페이지입니다. This website is Doyoon Jung Homepage" />
+  <!-- OpenGraph 최적화 -->
+  <meta name="og:site_name" content="정도윤 Github Website" />
+  <meta name="og:title" content="Favorite/Life ::: Doyoon Jung(정도윤)" />
+  <meta name="og:description"
+        content="정도윤 홈페이지입니다. This website is Doyoon Jung Homepage" />
+
+  <title>Favorite/Scrap(ROS2) ::: Doyoon Jung(정도윤)</title>
+
+  <link href="../images/logo/logo.ico" rel="icon">
+  <link href="../library/ruang/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../library/ruang/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../library/ruang/css/ruang-admin.min.css" rel="stylesheet">
+  
+  <!-- Fonts -->
+  <link href="../dist/fonts/NanumGothic/fonts.css" rel="stylesheet">
+
+  <!-- Script -->
+  <script src="../js/home.js"></script>
+
+  <!-- Plug-ins -->
+  <script src="../library/ruang/vendor/jquery/jquery.min.js"></script>
+  <link rel="stylesheet" href="../library/bxslider-4-4.2.12/dist/jquery.bxslider.css">
+  <script src="../library/bxslider-4-4.2.12/dist/jquery.bxslider.min.js"></script>
+
+  <!-- Slider -->  
+  <script>
+    $(document).ready(function(){
+      $('.slider1').bxSlider();
+    });
+  </script>
+
+</head>
+
+<body id="page-top">
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.html">
+        <div class="sidebar-brand-icon">
+          <img src="../images/logo/logo.png">
+        </div>
+        <div class="sidebar-brand-text mx-3">정도윤</div>
+      </a>
+      <hr class="sidebar-divider my-0">
+      <li class="nav-item">
+        <a class="nav-link" href="../index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+        Menu
+      </div>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfile"
+          aria-expanded="true" aria-controls="collapseProfile">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Profile</span>
+        </a>
+        <div id="collapseProfile" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Profile</h6>
+            <a class="collapse-item" href="../profile/profile_korean.html">Profile(Korean)</a>
+            <a class="collapse-item" href="../profile/profile_english.html">Profile(English)</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
+          aria-expanded="true" aria-controls="collapseBootstrap">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Study</span>
+        </a>
+        <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Study</h6>
+            <a class="collapse-item" href="../html_guide/study_avr.html">AVR</a>
+            <a class="collapse-item" href="../html_guide/study_linux.html">Linux</a>
+            <a class="collapse-item" href="../html_guide/study_settings.html">Settings</a>
+            <a class="collapse-item" href="../html_guide/study_python.html">Python</a>
+            <a class="collapse-item" href="../html_guide/study_raspberrypi.html">Raspberry Pi</a>
+            <a class="collapse-item" href="../html_guide/study_programming.html">Programming</a>
+            <a class="collapse-item" href="../html_guide/study_database.html">Database</a>
+            <a class="collapse-item" href="../html_guide/study_research_support.html">Research & Support</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
+          aria-controls="collapseForm">
+          <i class="fab fa-fw fa-wpforms"></i>
+          <span>Photo</span>
+        </a>
+        <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Photo</h6>
+            <a class="collapse-item" href="../photo/2024_doyoon.html">2024</a>
+            <a class="collapse-item" href="../photo/2023_doyoon.html">2023</a>
+            <a class="collapse-item" href="../photo/2022_doyoon.html">2022</a>
+            <a class="collapse-item" href="../photo/2021_doyoon.html">2021</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
+          aria-controls="collapseTable">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Project</span>
+        </a>
+        <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Project</h6>
+            <a class="collapse-item" href="../project/personal_project.html">Personal Project</a>
+            <a class="collapse-item" href="../project/cooperative_project.html">Cooperative project</a>
+          </div>
+        </div>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePublication"
+          aria-expanded="true" aria-controls="collapsePublication">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Publication</span>
+        </a>
+        <div id="collapsePublication" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Publication</h6>
+            <a class="collapse-item active" href="../publication/publication.html">Publication</a>
+          </div>
+        </div>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFavorite"
+          aria-expanded="true" aria-controls="collapseFavorite">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Favorite</span>
+        </a>
+        <div id="collapseFavorite" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Favorite</h6>
+            <a class="collapse-item" href="../favorite/general.html">General</a>
+            <a class="collapse-item" href="../favorite/development.html">Development</a>
+            <a class="collapse-item" href="../favorite/ce.html">Computer Engineering</a>
+            <a class="collapse-item" href="../favorite/rnd_and_scholarship.html">R&D and Scholarship</a>
+            <a class="collapse-item" href="../favorite/life.html">Life</a>
+          </div>
+        </div>
+      </li>
+      
+      <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseScrap"
+          aria-expanded="true" aria-controls="collapseScrap">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Scrap</span>
+        </a>
+        <div id="collapseScrap" class="collapse show" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Scrap</h6>
+            <a class="collapse-item" href="scrap_job_teacher.html">직업훈련교사</a>
+            <a class="collapse-item" href="scrap_yolo.html">Yolo</a>
+            <a class="collapse-item active" href="scrap_ros2.html">Ros2</a>
+            <a class="collapse-item" href="scrap_development.html">개발</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-- Sidebar -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+        <!-- TopBar -->
+        <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="navbar-nav ml-auto">
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img class="img-profile rounded-circle" src="../library/ruang/img/boy.png" style="max-width: 60px">
+                <span class="ml-2 d-none d-lg-inline text-white small">Doyoon Jung</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="../profile/profile_korean.html">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile(Korean)
+                </a>
+                <a class="dropdown-item" href="../profile/profile_english.html">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile(English)
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <!-- Topbar -->
+
+        <!-- Container Fluid-->
+        <div class="container-fluid" id="container-wrapper">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">Favorite / Scarp(ROS2)</h1>
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../">Home</a></li>
+                <li class="breadcrumb-item">Favorite</li>
+                <li class="breadcrumb-item active" aria-current="page">Scarp(ROS2)</li>
+              </ol>
+            </div>
+
+            <div class="card">
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Scarp(ROS2) 즐겨찾기입니다.</h6>
+              </div>
+            </div>
+
+            <br>
+            <div class="card">
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h8 class="m-0 font-weight-bold">1. 공식사이트</h8>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th style="width: 10%;">번호</th>
+                    <th style="width: 55%;">주제명</th>
+                    <th>링크</th>
+                    <th style="width: 25%;">비고</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr>
+                    <td>1</td>
+                    <td>
+                      ROS: Home<br>
+                      (2024-02-01, Open Robotics)
+                    </td>
+                    <td>
+                      <a href="https://ros.org" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - 공식 사이트
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>1</td>
+                    <td>
+                      Installation - ROS 2 Documentation: Humble  documentation<br>
+                      (2024-02-01, Open Robotics)
+                    </td>
+                    <td>
+                      <a href="https://docs.ros.org/en/humble/Installation.html" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - 설치 매뉴얼
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+          </div>
+
+          
+            <br>
+            <div class="card">
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h8 class="m-0 font-weight-bold">2. ROS2 공부 자료(링크)</h8>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th>번호</th>
+                    <th>주제명</th>
+                    <th>링크</th>
+                    <th>비고</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>
+                      현직자가 알려주는 ROS2 Humble 설치방법<br>
+                      (2023-08-12, i_robo_u, velog)
+                    </td>
+                    <td>
+                      <a href="https://velog.io/@i_robo_u/ROS2-Humble-설치방법" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - ROS2 Humble 설치 방법
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>2</td>
+                    <td>
+                      00장 ROS란 무엇인가? - ROS2 하루에 입문하기<br>
+                      (2021, Robert Choi, github)
+                    </td>
+                    <td>
+                      <a href="https://robertchoi.gitbook.io/ros2/00-ros" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - 
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>3</td>
+                    <td>
+                      ROS2 humble을 설치하고 공부하는데 필요한 설정<br>
+                      (2023-08-24, PinkWink, tistory)
+                    </td>
+                    <td>
+                      <a href="https://pinkwink.kr/1435" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - 
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>4</td>
+                    <td>
+                      ROS Courses (한국어) - YouTube<br>
+                      (2018, ROBOTIS OpenSourceTeam, YouTube)
+                    </td>
+                    <td>
+                      <a href="https://www.youtube.com/playlist?list=PLRG6WP3c31_VIFtFAxSke2NG_DumVZPgw" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - 
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>5</td>
+                    <td>
+                      [1부. ROS Intro - 2] ROS 기초 (1hr) - YouTube<br>
+                      (2021, KIMe Lab, YouTube)
+                    </td>
+                    <td>
+                      <a href="https://www.youtube.com/watch?v=Hvvd_KvdBXs&list=PL12w7vYWefUz9aRGRQqPWWLH9gTTEovRW&index=2" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - 
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>6</td>
+                    <td>
+                      [ROS 2 - 초급] #1 ROS 2 설치 및 개발 환경 구축 - YouTube<br>
+                      (2023, KIMe Lab, YouTube)
+                    </td>
+                    <td>
+                      <a href="https://www.youtube.com/watch?v=fbiT445DE9s&list=PL12w7vYWefUwSg5frw_tIHVp9XRwS8Ipt" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - ROS2 Foxy 설치 및 IDE 구축
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>7</td>
+                    <td>
+                      라즈베리파이4 에 ROS 설치하기<br>
+                      (2021-12-09, 기술 공간, tistory)
+                    </td>
+                    <td>
+                      <a href="https://leonam.tistory.com/89" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - ROS1 Kinetic 설치
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>7</td>
+                    <td>
+                      ROS Classic 에서 ROS2 로 넘어가야 하는 이유 I<br>
+                      (2021-09-14, makepluscode, tistory)
+                    </td>
+                    <td>
+                      <a href="https://makepluscode.tistory.com/20" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - ROS1에서 ROS2로 이전 관련 이야기
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>8</td>
+                    <td>
+                      'Robot/Robot Program - ROS' 카테고리의 글 목록<br>
+                      (2024-02-01, PinkWink, tistory)
+                    </td>
+                    <td>
+                      <a href="https://pinkwink.kr/category/Robot/Robot Program - ROS" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - PinkWink / ROS 카테고리
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>9</td>
+                    <td>
+                      ROS 2 on Raspberry Pi &mdash; ROS 2 Documentation: Humble  documentation<br>
+                      (2024-02-01, docs.ros.org)
+                    </td>
+                    <td>
+                      <a href="https://docs.ros.org/en/humble/How-To-Guides/Installing-on-Raspberry-Pi.html" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - 라즈베즈파이4에 ROS2 매뉴얼 - 공식 사이트
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>10</td>
+                    <td>
+                      Ubuntu 22.04에 ROS2 humble과 Gazebo 설치<br>
+                      (2023-06-10, roytravel, tistory)
+                    </td>
+                    <td>
+                      <a href="https://roytravel.tistory.com/378" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - 
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>11</td>
+                    <td>
+                      개발 환경 구축<br>
+                      (2023-06-04, tylee_yeonge, velog)
+                    </td>
+                    <td>
+                      <a href="https://velog.io/@tylee_yeonge/개발-환경-구축" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - ROS2 Humble에서 NAV2 Simulation, Gazebo 설치
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>12</td>
+                    <td>
+                      Gazebo - Docs: Binary Ubuntu Install<br>
+                      (2023-06-04, gazebosim.org)
+                    </td>
+                    <td>
+                      <a href="https://gazebosim.org/docs/harmonic/install_ubuntu" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - gazebosim.org 공식 사이트 설치 방법
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>13</td>
+                    <td>
+                      Setting up a robot simulation (Gazebo) — ROS 2 Documentation: Humble documentation<br>
+                      (2023-06-04, docs.ros.org)
+                    </td>
+                    <td>
+                      <a href="https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Gazebo/Gazebo.html#prerequisites" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - ROS2 공식사이트 Gazebo 셋팅 방법
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>14</td>
+                    <td>
+                      라즈베리파이4B를 사용한 TurtleBot3 세팅<br>
+                      (2023-03-25, katinon, velog)
+                    </td>
+                    <td>
+                      <a href="https://velog.io/@katinon/TurtleBot3-with-라즈베리파이-4-B" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - ROBOTIS사의 오픈소스 하드웨어인<br>
+                      TurtleBot3에 대한 셋팅 방법이다.<br>
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>15</td>
+                    <td>
+                      Mapping a simulation environment in ROS 2 - SVL Simulator<br>
+                      (2022, svlsimulator(LG Electronics Inc))
+                    </td>
+                    <td>
+                      <a href="https://www.svlsimulator.com/docs/tutorials/robotics-mapping/#installing-slam-toolbox" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - ROS2 Foxy에 대한 내용으로 구성되어 있음.<br>
+                      LG전자의 SVL Simulator를 사용해서 시뮬레이션을<br>
+                      하는 방법에 대해 다루고 있음(로봇청소기).<br>
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>16</td>
+                    <td>
+                      :-) smile man :: [CygLidar] 라즈베리파이 3B에 ROS깔고 CygLiDAR 연결하기<br>
+                      (2021-05-16, orasman, tistory)
+                    </td>
+                    <td>
+                      <a href="https://orasman.tistory.com/457" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - 라즈베리파이3에 ROS 설치하여 CygLiDAR를 부착함.<br>
+                      ROS1과 CygLiDAR를 연동하는 것을 다루고 있음.
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>17</td>
+                    <td>
+                      [ROS] 11. Lidar Sensor<br>
+                      (2021-07-21, 야호선종, tistory)
+                    </td>
+                    <td>
+                      <a href="https://95mkr.tistory.com/entry/ROS11" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - 메인보드: Jetson Nano Developer Kit.<br>
+                      - 운영체제: Ubuntu 18.04 - JetPack 4.4.1<br>
+                      - ROS 버전: Melodic<br>
+                      - 라이다: YDLidar사의 G2(가격: 20만원 상당)<br>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>18</td>
+                    <td>
+                      AI로봇랩 3강) ROS2로 원격 로봇 제어하기<br>
+                      (2022-03-08, keep-steady, tistory)
+                    </td>
+                    <td>
+                      <a href="https://keep-steady.tistory.com/46" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - ROS2에서 teleop keyboard로 시뮬레이션(Gazebo)를 활용한 원격 로봇 제어<br>
+                      로봇이 없는 경우에는 gazebo로 시뮬레이션이 가능함.
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>19</td>
+                    <td>
+                      [Project1] - (2) ROS2와 YOLOv8 연동시키기<br>
+                      (2023-05-01, 고집호랑이, tistory)
+                    </td>
+                    <td>
+                      <a href="https://developer-lionhong.tistory.com/61" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - 카메라를 통한 이미지 topic을 받은 후(subscribe) <br>
+                      yolo v8로 object detection한 후 navigation에서<br>
+                      사용할 수 있도록 구현하는 방법 소개
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>20</td>
+                    <td>
+                      noshluk2/ROS2-Self-Driving-Car-AI-using-OpenCV: <br>
+                      ROS2 Self Driving Car using Deeplearning and Object Tracking through openCV<br>
+                      (2021, noshluk2, github)
+                    </td>
+                    <td>
+                      <a href="https://github.com/noshluk2/ROS2-Self-Driving-Car-AI-using-OpenCV" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - ROS2 자율주행 프로젝트<br>
+                      (딥 러닝, Object Detection, OpenCV 연동)
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>21</td>
+                    <td>
+                      Jetson Nano, PCA9685, L298N, DC-Motor 4륜구동 자동차 - Practical.kr<br>
+                      (2020-11-18, Practical, 개인 블로그)
+                    </td>
+                    <td>
+                      <a href="http://practical.kr/?p=160" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - ROS 사용하지 않고 제작한 자동차.
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>22</td>
+                    <td>
+                      ROS2에서 YDLIDAR X4 사용해 보고 .. : 네이버블로그<br>
+                      (2022-08-03, 오픈랩, 네이버 블로그)
+                    </td>
+                    <td>
+                      <a href="https://blog.naver.com/roboholic84/222838471738" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - ROS2, YDLidar X4(9만원 상당)<br>
+                      - M/B: Jetson Nano<br>
+                      Rviz2로 라이다 스캔하기
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>23</td>
+                    <td>
+                      rviz를 이용한 센서 데이터 시각화<br>
+                      (2023-04-13, Sinaenjuni.log, velog)
+                    </td>
+                    <td>
+                      <a href="https://velog.io/@y2k4388/rviz를-이용한-센서-데이터-시각화" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - ROS1, Ubuntu 18.04<br>
+                      (ROS1은 보안 문제로 권장 안함.)<br>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+          </div>
+
+
+          <br>
+            <div class="card">
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h8 class="m-0 font-weight-bold">3. 자율주행 일부분(Lane Detection 또는 Line Detection)</h8>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th>번호</th>
+                    <th>주제명</th>
+                    <th>링크</th>
+                    <th>비고</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>
+                      saemmilee/line_detect · GitHub<br>
+                      (2021-10, saemmillee, github)
+                    </td>
+                    <td>
+                      <a href="https://github.com/saemmilee/line_detect" target="_blank">
+                        링크(Link)
+                      </a>
+                    </td>
+                    <td>
+                      - OpenCV 기반의 차선 인식을 다루고 있음.<br>
+                      - 개발언어: Python<br>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+          <!-- Modal Logout -->
+          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabelLogout">Ohh No!</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Are you sure you want to logout?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
+                  <a href="login.html" class="btn btn-primary">Logout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!---Container Fluid-->
+      </div>
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; 2022~<script> document.write(new Date().getFullYear()); </script> - Doyoon Jung Website
+              <b><a href="https://rabbitsun2.github.io/" target="_blank">rabbitsun2</a></b>
+            </span>
+          </div>
+        </div>
+
+      </footer>
+      <!-- Footer -->
+    </div>
+  </div>
+
+  <!-- Scroll to top -->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <script src="../library/ruang/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../library/ruang/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="../library/ruang/js/ruang-admin.min.js"></script>
+  <script src="../library/ruang/vendor/chart.js/Chart.min.js"></script>
+  <script src="../library/ruang/js/demo/chart-area-demo.js"></script>  
+
+  <!-- Slick -->
+  <script src="../library/slick-1.8.1/slick/slick.min.js" type="text/javascript"></script>
+
+  <script>
+      $('.autoplay').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      });
+  </script>
+
+</body>
+
+</html>
