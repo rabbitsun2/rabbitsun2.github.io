@@ -1,0 +1,41 @@
+/*
+	Subject: Ubuntu Server 22.04, Wireless guides
+	Author: Doyun Jung (정도윤) / rabbit.white@daum.net
+	Created Date: 2022-07-16
+	Description:
+
+*/
+
+1. iwconfig 설치하기
+# sudo apt install wireless-tools
+
+2. iwconfig 확인하기
+# iwconfig
+
+3. netplan 변경하기
+# sudo vim /etc/netplan/50-cloud-init.yaml
+
+--------------------------------------------------------------
+network:
+    ethernets:
+        eth0:
+            dhcp4: true
+            optional: true
+    version: 2
+    wifis:
+        wlan0:
+            optional: true
+            access-points:
+                "SSID-NAME-HERE":
+                    password: "PASSWORD-HERE"
+            dhcp4: true
+
+--------------------------------------------------------------
+4. netplan 적용하기
+# sudo netplan apply
+
+5. ifconfig 설치하기
+# sudo apt install net-tools
+
+6. ifconfig 확인하기
+# ifconfig

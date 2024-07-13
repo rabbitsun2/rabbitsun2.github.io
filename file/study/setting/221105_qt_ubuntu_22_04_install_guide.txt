@@ -1,0 +1,43 @@
+/*
+	Created Date: 2022-11-05
+	Author: Doyoon Jung(정도윤) / rabbit.white@daum.net
+	Subject: Qt5 Install Guide with Ubuntu 22.04
+	Description:
+
+*/
+
+1. 필수 개발환경 설치
+# sudo apt-get update
+# sudo apt-get install build-essential
+
+2. QT Creator (IDE)
+# sudo apt-get install qtcreator
+
+3. Install Package
+sudo apt install -y qtcreator qtbase5-dev qt5-qmake cmake
+
+4. Qt5 install problem Ubuntu 22.04 Solution
+오피셜 사이트 접속할 것: https://qt.io
+
+sudo chmod +x qt-opensource-linux-x64-5.12.10.run
+
+(설치 용량: 약 16GB 이상 소요)
+
+(이메일 계정: 인증 필수)
+
+5. QT 종속파일 생성
+sudo apt install libfontconfig1 build-essential mesa-common-dev libglu1-mesa-dev
+
+6. 바탕화면 아이콘 생성
+touch ~/.local/share/applications/Qt-Creator.desktop
+
+echo "[Desktop Entry] Version=1.0 Encoding=UTF-8 Type=Application Name=QtCreator Comment=QtCreator NoDsiplay=true Exec=(Install folder of QT)/Tools/QtCreator/bin/qtcreator %f Icon=(Install folder of QT)/5.4/Src/qtdoc/doc/images/landing/icon_QtCreator_78x78px.png Name[en_US]=Qt-Creator" > ~/.local/share/applicationsQt-Creator.desktop
+
+7. Update the permissions of the Qt Creator file with chmod.
+
+sudo chmod +x ~/.local/share/applicationsQt-Creator.desktop
+
+8. Make Qt the default file association for pro files on Ubuntu using echo.
+
+echo "text/qtcreator=Qt-Creator.desktop;" >> ~/.local/share/applications/defaults.list
+After adding the file association, everything should work.

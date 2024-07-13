@@ -1,0 +1,69 @@
+/*
+	
+	Subject: Debian 11 - SVNserve Settings Guide
+	Create Date: 2022-07-09
+	Author: Doyun Jung(정도윤)
+	Description:
+
+*/
+
+1. SVN 설치
+# sudo apt-get install subversion
+
+2. 저장소 생성
+# /home/pi
+# mkdir svn_repos
+# cd svn_repos
+# mkdir helloProject
+
+# sudo svnadmin create /home/pi/svn_repos/helloProject
+
+3. (개별 프로젝트별) svn 환경 설정
+# cd /home/pi/svn_repos/helloProject/conf
+# sudo vim svnserve.conf
+
+[general]
+anon-access = none (true : 누구나 읽기 가능, none : 안됨)
+auth-access = write (인증된 사용자만 쓰기)
+password-db = passwd (사용자 계정 정보 DB로 passwd 파일을 사용하겠다는 뜻) 
+authz-db = authz (사용자 계정 권한 정보 DB로 authz 파일을 사용하겠다는 뜻)
+realm = Hellow My Prject (SVN 설명 또는 타이틀로 생각하면 됨) 
+
+[sasl] (SASL 암호화시 사용) 
+# use-sasl = true  
+# min-encryption = 0
+# max-encryption = 256 
+
+=> 주의 할 점은 주석 풀고(#삭제) 그 자리에 공백이 들어 가면 오류난다. 
+
+예를 들어 'password-db = passwd ‘에서 ‘ password-db = passwd ‘ 
+이렇게 앞에 공백이 들어가면 오류난다.
+svn 서버 시작 했는데 연결이 제대로 안된다면 설정 앞에 맨앞에 공백이 없는지 확인부터 하자.
+
+4. (개별 프로젝트별) svn 사용자 계정 설정
+#  sudo vim passwd
+
+[users]
+hello = helloworld
+
+5. 사용자별 권한 설정
+(모든 저장소에 모든 계정의 사용자에게 쓰기/읽기 권한을 주려면 설정에서 authz-db를 주석 처리 하자)
+
+# sudo vim authz
+
+[helloProject:/]
+hello = rw <= 읽고 쓰기 권한
+
+6. svn 서비스 실행
+# svnserve -d -r /home/pi/svn_repos
+
+7. svn 제대로 실행 되고 있는 확인
+# mkdir ~/helloProject
+# cd ~/helloProject
+# svn checkout svn://localhost/helloProject —username=hello
+
+체크아웃 제대로 되는것 확인 했으면 localhost 대신 ip 주소 넣고 이클립스나 
+다른 svn client 등에서 체크 아웃 해서 사용하자.
+
+8. 서비스 죽이기(SVN 종료)
+killall svnserve

@@ -1,0 +1,31 @@
+/*
+	Subject: Ubuntu Server 20.04(22.04)에서 gitlab 명령어 사용하기
+	Author: Doyoon Jung(rabbit.white@daum.net)
+	
+	Reference:
+	1. https://abc2080.tistory.com/entry/GitLab-%EC%84%A4%EC%A0%95-%ED%8C%8C%EC%9D%BC-%EB%B0%8F-%EB%AA%85%EB%A0%B9%EC%96%B4
+
+*/
+
+설정 적용
+# gitlab-ctl reconfigure
+
+서비스 재시작
+# gitlab-ctl restart 
+
+서비스 상태 확인
+# gitlab-ctl status
+
+서비스 중지
+# gitlab-ctl stop
+
+서비스 삭제
+# gitlab-ctl uninstall 
+
+혹은
+# gitlab-ctl appt-get autoremove gitlab-ce
+
+ubuntu 16.04 gitlab 설정 파일 경로
+/etc/gitlab/gitlab.rb
+/var/opt/gitlab/
+/opt/gitlab/embedded/service/gitlab-rails/app/views

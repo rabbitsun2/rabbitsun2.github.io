@@ -1,0 +1,43 @@
+/*
+	Subject: Ubuntu 22.04, xrdp, xfce4 settings guides
+	Author: Doyun Jung (정도윤) / rabbit.white@daum.net
+	Created Date: 2022-07-16
+	Description:
+
+*/
+
+1. xrdp 패키지 설치
+# sudo apt-get install xrdp -y
+
+2. xfce4 설치
+# sudo apt-get install xfce4 -y
+
+3. startwm.sh 변경
+# sudo vim /etc/xrdp/startwm.sh
+
+------------------------------------------------------------
+~(중략)
+
+#test -x /etc/X11/Xsession && exec /etc/X11/Xsession
+#exec /bin/sh /etc/X11/Xsession
+test -x /usr/bin/startxfce4 && exec /usr/bin/startxfce4
+exec /bin/sh /usr/bin/startxfce4
+
+------------------------------------------------------------
+
+4. 포트 변경
+# sudo vim /etc/xrdp/xrdp.ini
+
+[globals]
+port=3389     //기본값(3389)를 원하는 값으로 변경한 후 xrdp를 재시작 하면 됨
+포트를 변경 하셨다면, 접속시 뒤에 :포트번호 를 적어주셔야 합니다.
+
+5. 재시작
+# service xrdp restart
+
+
+6. MS윈도우에서 원격 데스크톱 연결 사용하기
+접속방법: 실행창(윈도우키+r) > mstsc 
+
+예) 192.168.1.123:33890
+[출처] # 우분투 xrdp를 이용하여 원격 접속 및 원격 접속포트 변경|작성자 꼬꼬

@@ -1,0 +1,141 @@
+/*
+	Created Date: 2022-12-26 (Mon)
+	Author: Doyoon Jung(정도윤) / rabbitsun2@gmail.com
+	Subject: Linux Apache 2.4, MariaDB, PHP 8.1, Laravel9 Setting Guide with Ubuntu 22.04
+	Description:
+	1. https://linuxopsys.com/topics/install-laravel-on-ubuntu, Accessed by 2022-12-26.
+	2. https://techvblogs.com/blog/how-to-install-php-8-1-on-ubuntu-22-04, Accessed by 2022-12-26.
+*/
+
+* Step 1: Install Apache web server on Ubuntu
+# sudo apt update
+
+# sudo apt install unzip curl software-properties-common
+
+# sudo apt install apache2
+
+# sudo systemctl status apache2
+
+http://server-ip-address
+
+부팅 시 Apache 2 시작하기
+# sudo systemctl enable apache2
+
+* Step 2: Install PHP and additional PHP extensions
+
+# sudo apt install php
+
+# php -v
+
+Output
+PHP 8.1.2 (cli) (built: Apr  7 2022 17:46:26) (NTS)
+Copyright (c) The PHP Group
+Zend Engine v4.1.2, Copyright (c) Zend Technologies
+    with Zend OPcache v8.1.2, Copyright (c), by Zend Technologies
+
+Laravel 9 Require PHP 8 Extension
+# sudo apt install php-mbstring php-mysql php-curl php-cli php-dev php-imagick php-soap php-zip php-xml php-imap php-xmlrpc php-gd php-opcache php-intl
+
+# sudo systemctl restart apache2
+
+* Step 3: Create Database for Laravel Application
+실무에서는 DB서버를 분리할 수도 있음.
+
+# sudo apt install mariadb-server
+
+# sudo mysql -u root -p
+
+# CREATE DATABASE laravel_db;
+
+# CREATE USER 'laravel_user'@'localhost' IDENTIFIED BY 'secretpassword';
+
+Then grant all privileges to the database user on the Laravel database:
+# GRANT ALL ON laravel_db.* TO 'laravel_user'@'localhost';
+
+Now request the server to reload the grant tables:
+# FLUSH PRIVILEGES;
+
+EXIT;
+
+* Step 4: Install Composer
+
+To download the composer, run the following curl command. 
+This downloads a file named composer.phar to your current directory.
+# curl -sS https://getcomposer.org/installer | php
+
+Next, move the composer.phar to the /usr/local/bin/composer directory.
+# sudo mv composer.phar /usr/local/bin/composer
+
+Be sure to assign execute permissions using the chmod command shown.
+# sudo chmod +x /usr/local/bin/composer
+
+# composer --version
+
+* Step 5: Install Laravel on Ubuntu
+# cd /var/www/html
+
+Thereafter, install Laravel using the composer create project command where my_laravelapp is the directory 
+that will contain all the files needed by Laravel.
+
+# sudo composer create-project laravel/laravel my_laravelapp
+
+Running the command outputs a flurry of output to the terminal.
+Once the installation is over, head over to the Laravel directory.
+
+# cd my_laravelapp
+
+Then check the Laravel version.
+
+# php artisan | less
+
+Output
+Laravel Framework 9.13.0
+
+# sudo chown -R www-data:www-data /var/www/html/my_laravelapp
+# sudo chmod -R 775 /var/www/html/my_laravelapp
+
+* Step 6: Configure Apache to serve the Laravel site
+
+The last step is to configure Laravel. 
+For this, we will create a virtual host file that will point the client requests to the Laravel directory.
+So, create the host file as follows.
+# sudo vim /etc/apache2/sites-available/laravel.conf
+
+Paste the following lines of code. 
+Be sure to replace example.com with your server's IP address of a registered domain name.
+
+<VirtualHost *:80>
+ServerName example.com
+ServerAdmin admin@example.com
+DocumentRoot /var/www/html/my_laravelapp/public
+<Directory /var/www/html/my_laravelapp>
+AllowOverride All
+</Directory>
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+Save the changes and exit. Next, enable the Laravel virtual host file.
+# sudo a2ensite laravel.conf
+
+Then enable the Apache rewrite module.
+# sudo a2enmod rewrite
+
+To apply the changes, restart the Apache web server.
+# sudo systemctl restart apache2
+
+Be sure that the syntax is ok by running the following command.
+# apachectl configtest
+Output
+Syntax OK 
+
+* Step 7: Access Laravel from a web browser
+Everything is now configured. 
+To access Laravel, simply launch your preferred browser and head over to your server's IP address or 
+registered domain name.
+
+# http://server-ip
+OR
+# http://domain-name
+
+You should be able to see the default Laravel web page.

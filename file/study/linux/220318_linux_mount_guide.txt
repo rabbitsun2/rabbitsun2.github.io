@@ -1,0 +1,35 @@
+/* 
+	제목: Linux Mount Guide
+	작성일자: 2022-03-18
+	파일명: 220318_linux_mount_guide.txt
+	작성자: 정도윤
+	이메일: rabbit.white@daum.net
+*/
+(마운트 대상)
+* USB, CD/DVD 등
+* NFS(Network File System)
+* FileSystem: ext4(Linux)
+
+(사용 방법)
+1. 기존 마운트 정보 확인
+# mount
+
+2. 디바이스 파일 조회
+# ls -al /dev
+
+3. 마운트 해제(CD/DVD)
+# umount /dev/cdrom
+
+4. CD/DVD와 USB 메모리 직접 마운트: /media 디렉터리에 연결
+
+# ls -l /media
+# mkdir /media/cdrom
+# mount /dev/cdrom /media/cdrom
+
+4-1. 사용을 마친 후 마운트된 장치의 연결 해제
+# umount /media/cdrom
+
+5. 사용 용량 조회(disk free, 전체 디스크 여유 공간 확인)
+# df
+# df -h 		// GB, MB 등의 표기로 출력
+

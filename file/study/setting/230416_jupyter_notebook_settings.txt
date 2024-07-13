@@ -1,0 +1,61 @@
+/*
+	Subject: Jupyter Notebook - Settings
+	Author: Doyoon Jung (rabbit.white@daum.net)
+	Created Date: 2023-04-16 (Sun)
+	Description:
+
+*/
+
+$HOME/.jupyter/jupyter_notebook_config.py 수정하기
+
+# jupyter notebook --generate-config
+
+1. 외부 접속 허용
+
+c.NotebookApp.allow_origin = '*'
+
+2. 외부 IP 허용
+
+c.NotebookApp.ip = '*'
+
+3. 주피터 노트북 경로
+
+c.NotebookApp.notebook_dir = u'/home/rabbitsun2/jupyter_notebook'
+
+4. 웹 브라우저 자동 실행 끄기
+
+c.NotebookApp.open_browser = False
+
+5. 주피터 노트북 암호 설정
+
+5-1. ipython에서 패스워드 생성하기
+$ ipython
+
+In [1]: from notebook.auth import passwd
+
+In [2]: passwd()
+
+Enter password:
+Verify Password:
+Out[2]: 'sha2:..........................................................'
+
+In [3]: exit
+
+
+c.NotebookApp.password = u'argon2:$'
+
+6. 주피터 노트북 포트 설정
+
+# c.NotebookApp.port = 8888
+
+7. SSL 설정
+
+# sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout "cert2048.key" -out "cert2048.pem" -batch
+
+* rsa를 1024로 하면
+   - ssl.SSLError: [SSL: EE_KEY_TOO_SMALL] ee key too small (_ssl.c:3874) 에러가 발생
+   - 2048로 수정하고 생성 후 적용
+
+c.NotebookApp.keyfile = u'/home/rabbitsun2/ssl/cert2048.key'
+c.NotebookApp.certfile = u'/home/rabbitsun2/ssl/cert2048.pem'
+

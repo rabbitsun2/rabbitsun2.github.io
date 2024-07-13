@@ -1,0 +1,223 @@
+/*
+	Subject: Ubuntu Server 22.04, Hadoop Cluster Setting Guides
+	Author: Doyun Jung (정도윤) / rabbit.white@daum.net
+	Created Date: 2022-07-16
+	Description:
+
+*/
+
+Category	Requirements, Conventions or Software Version Used
+System	Installed Ubuntu 22.04 or upgraded Ubuntu 22.04 Jammy Jellyfish
+Software	Apache Hadoop, Java
+Other	Privileged access to your Linux system as root or via the sudo command.
+Conventions	# – requires given linux commands to be executed with root privileges either directly as a root user or by use of sudo command
+$ – requires given linux commands to be executed as a regular non-privileged user
+
+
+1. hadoop 계정 생성
+$ sudo adduser hadoop
+
+2. Install the Java prerequisite
+$ sudo apt update
+$ sudo apt install openjdk-8-jdk openjdk-8-jre
+$ sudo apt install openssh-server openssh-client
+
+$ su hadoop
+$ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+
+$ ls -lrt .ssh/
+-rw-r--r-- 1 ubuntu ubuntu 397 Dec 9 00:17 id_rsa.pub
+-rw------- 1 ubuntu ubuntu 1679 Dec 9 00:17 id_rsa
+
+$ cat .ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+$ sudo vim /etc/hosts
+192.168.1.100 namenode.socal.rr.com
+192.168.1.141 datanode1.socal.rr.com
+192.168.1.113 datanode2.socal.rr.com
+192.168.1.118 datanode3.socal.rr.com
+
+
+$ scp .ssh/authorized_keys datanode1:/home/ubuntu/.ssh/authorized_keys
+$ scp .ssh/authorized_keys datanode2:/home/ubuntu/.ssh/authorized_keys
+$ scp .ssh/authorized_keys datanode3:/home/ubuntu/.ssh/authorized_keys
+
+3. Install Hadoop and configure related XML files
+https://hadoop.apache.org/releases.html (Accessed by 2022-07-17, Last Modified 2022-07-17.)
+
+$ wget https://downloads.apache.org/hadoop/common/hadoop-3.3.3/hadoop-3.3.3.tar.gz
+$ tar -xzvf hadoop-3.3.3.tar.gz -C /home/hadoop
+
+4. Setting up the environment variable
+
+export HADOOP_HOME=/home/hadoop/hadoop-3.3.3
+export HADOOP_INSTALL=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+
+$ source ~/.bashrc
+
+$ vim ~/hadoop-3.3.3/etc/hadoop/hadoop-env.sh
+
+Change the JAVA_HOME variable to where Java is installed. On our system 
+(and probably yours too, if you are running Ubuntu 20.04 and have followed along with us so far),
+ we change that line to:
+
+---- 1. 우분투 --------------------------------------------------
+(중략)
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+---- 2. 라즈베리파이 우분투 ------------------------------------
+(중략)
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-arm64
+------------------------------------------------------------------
+
+
+5. Configuration changes in core-site.xml file
+core-site.xml 파일 편집
+
+$ vim ~/hadoop-{version}/etc/hadoop/core-site.xml
+
+<configuration>
+<property>
+<name>fs.defaultFS</name>
+<value>hdfs://192.168.1.100:9000</value>
+</property>
+</configuration>
+
+6. hdfs-site.xml 변경하기
+$ vim ~/hadoop-{version}/etc/hadoop/hdfs-site.xml
+
+<configuration>
+	<property>
+		<name>dfs.replication</name>
+		<value>1</value>
+	</property>
+	<property>
+		<name>dfs.name.dir</name>
+		<value>file:///home/hadoop/hdfs/namenode</value>
+	</property>
+	<property>
+		<name>dfs.data.dir</name>
+		<value>file:///home/hadoop/hdfs/datanode</value>
+	</property>
+</configuration>
+
+7. Configuration changes in mapred-site.xml file
+$ vim ~/hadoop-{version}/etc/hadoop/mapred-site.xml
+
+<configuration>
+	<property>
+		<name>mapreduce.jobtracker.address</name>
+		<value>192.168.1.100:54311</value>
+	</property>
+	<property>
+		<name>mapreduce.framework.name</name>
+		<value>yarn</value>
+	</property>
+</configuration>
+
+8. Configuration changes in yarn-site.xml file
+$ vim ~/hadoop-{version}/etc/hadoop/yarn-site.xml
+
+<configuration>
+	<property>
+		<name>yarn.nodemanager.aux-services</name>
+		<value>mapreduce_shuffle</value>
+	</property>
+	<property>
+		<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+		<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+	</property>
+	<property>
+		<name>yarn.resourcemanager.hostname</name>
+		<value>192.168.1.100</value>
+	</property>
+</configuration>
+
+9. 데이터, 네임노드 폴더 생성
+$ mkdir -p ~/hdfs/namenode
+$ mkdir -p ~/hdfs/datanode
+
+10. 마스터(Master) 및 작업자(Worker) 파일 생성
+10-1. 마스터 파일 생성
+파일 masters 시작 스크립트에서 이름 노드를 식별하는 데 사용됩니다. 
+그래서 vim<strong> ~/hadoop/etc/hadoop/masters</strong> 이름 노드 IP를 추가하십시오.
+
+192.168.1.100
+
+10-2. 작업자 파일 생성
+파일 workers 시작 스크립트에서 데이터 노드를 식별하는 데 사용됩니다. 
+vim ~/hadoop/etc/hadoop/workers 모든 데이터 노드 IP를 여기에 추가하십시오.
+
+192.168.1.141
+192.168.1.113
+192.168.1.118
+
+11. HDFS 포맷 및 Hadoop 클러스터 시작
+11-1. HDFS 포맷
+$ hdfs namenode -format
+
+이제 Hadoop 설치가 구성되었으며 실행할 준비가 되었습니다.
+
+11-2. HDFS 클러스터 시작
+다음을 실행하여 HDFS를 시작합니다. start-dfs.sh 네임 노드 서버의 스크립트(네임노드)
+
+$ start-dfs.sh
+Starting namenodes on [namenode.socal.rr.com]
+Starting datanodes
+Starting secondary namenodes [namenode]
+
+$ jps
+18978 SecondaryNameNode
+19092 Jps
+18686 NameNode
+
+그리고 http://192.168.1.100:9870에 접속하면 다음과 같은 네임노드 웹 UI를 볼 수 있습니다.
+
+12. HDFS에 파일 업로드 방법
+HDFS에 쓰기 및 읽기는 명령으로 수행됩니다. 
+hdfs dfs. 먼저 홈 디렉토리를 수동으로 만듭니다. 
+다른 모든 명령은 이 기본 홈 디렉토리에 대한 상대 경로를 사용합니다.
+ubuntu 로그인한 사용자입니다.
+다른 사용자로 로그인하는 경우 우분투 대신 사용자 ID를 사용하십시오)
+
+12-1. dfs 내에 수동으로 홈 폴더 생성하기
+$ hdfs dfs -mkdir -p /user/ubuntu/
+
+예제) Gutenberg 프로젝트에서 책 파일 가져오기
+$ wget -O alice.txt https://www.gutenberg.org/files/11/11-0.txt
+
+12-2. put 옵션을 사용하여 hdfs에 업로드하기
+       -put 옵션을 사용하여 다운로드한 파일을 hdfs에 업로드
+
+$ hdfs dfs -mkdir books
+$ hdfs dfs -put books/alice.txt
+
+12-3. hdfs 파일 목록 조회
+$ hdfs dfs -ls
+
+참고) 
+1. Apache HDFS 셸 문서
+https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html
+
+HDFS를 관리하기 위한 많은 명령이 있습니다. 
+전체 목록을 보려면 다음을 참조하십시오. 
+
+12-4 HDFS 클러스터 중지
+stop-dfs.sh 명령어를 통해 HDFS를 중지합니다.
+
+$ stop-dfs.sh
+Stopping namenodes on [namenode.socal.rr.com]
+Stopping datanodes
+Stopping secondary namenodes [namenode]
+
+12-5. Hadoop version 조회
+$ hadoop version
+
+12-6. Hdfs version 조회
+$ hdfs version

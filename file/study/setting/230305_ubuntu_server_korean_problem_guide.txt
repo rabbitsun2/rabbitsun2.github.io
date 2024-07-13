@@ -1,0 +1,43 @@
+/*
+	Subject: Ubuntu Server 20.04(22.04)에서 한글 사용하기
+	Author: Doyoon Jung(rabbit.white@daum.net)
+	
+	Reference:
+	1. https://findnew.tistory.com/22
+
+*/
+
+* 우분투 서버를 사용하고 있을 경우 X 시스템과 폰트관련 패키지가 설치되어 있지 않다. 
+$ sudo apt-get install libfontenc1 libxfont1 xfonts-encodings xfonts-utils xfonts-base xfonts-75dpi
+
+우분투 데스크탑을 사용하고 있다면 Pass
+
+한글 언어팩 설치
+$ sudo apt-get install language-pack-ko
+
+$ sudo locale-gen ko_KR.UTF-8
+
+vi /etc/default/locale
+LANG="en_US.UTF-8"
+LANG="ko_KR.UTF-8"
+
+
+vi /etc/environment 
+PATH 밑에 추가
+LANG="ko_KR.UTF8"
+LANGUAGE="ko_KR:ko:en_GB:en"
+
+별도의 설정없이 바로 사용할 수 있는
+
+한글폰트는 unfonts, baekmuk, nanum 정도 
+
+은폰트 - unfonts
+$ apt-get install fonts-unfonts-core fonts-unfonts-extra 
+
+백묵폰트 - baekmuk
+$ apt-get install fonts-baekmuk
+
+나눔폰트 - nanum
+$ apt-get install fonts-nanum fonts-nanum-coding fonts-nanum-extra
+
+$ reboot

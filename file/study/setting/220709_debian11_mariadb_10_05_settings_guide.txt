@@ -1,0 +1,36 @@
+/*
+	
+	Subject: Debian 11 - Mariadb 10.05 Settings Guide
+	Create Date: 2022-07-09
+	Author: Doyun Jung(정도윤)
+	Description:
+
+*/
+
+1. 계정 생성 및 DB생성, 권한 부여
+# mysql -u root -p
+# use mysql
+
+# create user 'hr'@'%' identified by '123456';
+* 참고1) 사용자 제거 방법
+  drop user {username};
+  delete from user where user={username};
+
+* 참고2) 사용자 목록 조회
+  select user, host from user;
+
+# show databases;
+# create database hr;
+# grant all privileges on hr.* to 'hr'@'%';
+# flush privileges;
+
+* 참고3) 권한 제거
+  revoke all on test.* from 'hr'@'%';
+
+
+2. 서버 외부 접속 허용하기
+# cd /etc/mysql/mysql.conf.d
+   또는 cd /etc/mysql/mariadb.conf.d
+# sudo vim 50-server.cnf
+   bind-address = 0.0.0.0 으로 변경
+

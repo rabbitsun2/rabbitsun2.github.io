@@ -1,0 +1,56 @@
+/*
+	Created Date: 2022-12-14 (Wed)
+	Author: Doyoon Jung(정도윤) / rabbit.white@daum.net
+	Subject: Let's Encrypt SSL - Gitlab with Ubuntu 22.04
+	Description:
+*/
+
+1. let's encrypt 설치하기
+# apt-get install letsencrypt
+
+2. gitlab.rb 수정하기
+# sudo vim /etc/gitlab/gitlab.rb
+
+...
+external_url 'http://git.oofbird.net'
+...
+nginx['custom_gitlab_server_config'] = "location ^~ /.well-known { root /var/www/letsencrypt; }"
+...
+
+내용을 분석해보면, 웹 요청이 /.well-known 으로 왔을 경우 관련 컨텐츠를 /var/www/letsencrypt로 연결하게 하는 것이다.
+설정이 완료되었으면 gitlab-ctl을 활용하여 재구성한다
+
+# sudo gitlab-ctl reconfigure
+
+
+3. Let's encrypt를 이용하여 도메인 인증
+인증 준비가 완료되었으므로 Certbot을 활용하여 다음 명령으로 SSL 인증키를 발급받을 수 있다.
+
+# sudo letsencrypt certonly --webroot --webroot-path=/var/www/letsencrypt -d [적용할 도메인]<textarea>
+
+인증 중간에 보시면 이메일 주소입력 부분이 있다. 
+인증서 만기에 따른 알림해주기 때문에 정확한 주소를 기입하시는 것이 좋겠다.
+
+인증처리가 완료되면 다음 경로에 가보시면 추가된 파일을 볼 수 있다.
+
+# sudo ls /etc/letsencrypt/live/[인증한 도메인]
+총 4개 cert.pem, chain.pem, fullchain.pem, privkey.pem 파일을 보실 수 있으며 이중 fullchain.pem, privkey.pem 파일을 사용하게 된다.
+
+5. GitLab의 SSL 설정 변경
+인증키까지 발급이 끝났으므로, GitLab의 설정(관련 파일 /etc/gitlab/gitlab.rb)을 수정하도록 하겠다.
+
+# sudo vim /etc/gitlab/gitlab.rb
+
+외부 접속을 http에서 https로 변경을 하고, http요청을 https로 redirect 하도록 하고, ssl 인증키를 사용하도록 하겠습니다.
+...
+external_url 'https://[인증한 도메인]'
+...
+nginx['redirect_http_to_https'] = true
+...
+nginx['ssl_certificate'] = "/etc/letsencrypt/live/[인증한 도메인]/fullchain.pem"
+nginx['ssl_certificate_key'] = "/etc/letsencrypt/live/[인증한 도메인]/privkey.pem"
+...
+설정이 변경되었으면, gitlab-ctl을 활용하여 재구성합니다.
+
+# sudo gitlab-ctl reconfigure
+
