@@ -4,7 +4,7 @@
 
 ##### 2\. 작성자: 정도윤 박사(Ph.D in Engineering Do-Yoon Jung)
 
-##### 3\. 작성일자: 2026-06-07(Sun) (ver6-Next Gen)
+##### 3\. 작성일자: 2026-06-12(Fri) (ver6-Next Gen)
 
 ##### 3\. 이메일: rabbitsun2@gmail.com
 
